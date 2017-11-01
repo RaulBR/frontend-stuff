@@ -1,0 +1,27 @@
+
+.logo{
+    position: fixed;
+    height: 60px;
+    width: 60px;
+}
+.hedder{
+    position: absolute;
+    background-color: white;
+    height: 10% ;
+    top:0;
+    width: 100%;
+}
+.hedder-buttons{
+    position: center;
+    left: 50%;
+}
+
+body {
+    background-color: powderblue;
+}
+h1 {
+    color: blue;
+}
+p {
+    color: #0000;
+}
