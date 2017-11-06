@@ -151,7 +151,7 @@ a.button-hover:hover{
    
     clear: both;
 }
-.service-title{
+.service-main-title{
     margin-left:15%;
     padding:2%;
     font-size: 300%;
@@ -163,13 +163,33 @@ a.button-hover:hover{
     
 }
 .service{
-    margin:4%;
-    padding: 2%;
-    display: inline-block;
+    
+    margin:2%;
+    padding: 1%;
+   float:left;
     background-color: #e2e2e2;
     height: 20rem;
-    width:20%;
+    width:27%;
     outline: 2px solid #e2e2e2 ;
-    outline-offset-left: 3px;
+    outline-offset: 3px;
     
+}
+.service-title{
+    position: relative;
+    
+    width:15%;
+    font-size:300%;
+    color:blue;
+        
+
+}
+.service-title:after{
+    content:"";
+
+}
+
+.serive-text{
+    position: relative;
+    margin-top: 7%;
+
 }
