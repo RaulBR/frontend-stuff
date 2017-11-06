@@ -108,11 +108,21 @@ a.button-hover:hover{
     color: blue;
     font-size: 400%;
     margin-top:10%;
-    margin-left:5%;
-    margin-right:5%;
+    margin:5%;
+   
+
+    
+
+
 }
 .textbox-text{
     position: absolute;
     top:30%;
     height: 70%;
+}
+
+.container_two{
+    position:relative;
+    background-color: bule;
+
 }
