@@ -91,6 +91,9 @@ a.button-hover:hover{
     
 }
 .aux-text{
+  position: absolute;
+    
+    padding:0.7rem;
     color: white;
     font-size:120%;
     margin-left: 0 auto;
