@@ -1,0 +1,139 @@
+.info-picker-container{
+    margin-top:10rem;
+    width:118rem;
+    height:30rem;
+    background-color:#e2e2e2;
+    border-bottom: 2rem solid #6ba3ff;
+}
+span {
+    margin:4rem;
+    content: "\2190";
+    font-size: 5rem;
+  }
+  .info-picker-arow{
+      float:left;
+      padding-top:12rem;
+      
+  }
+
+  .info-picker-center{
+      float:left;
+      width:91rem;
+  }
+
+  .info-picker-center-title{
+   padding-top:3rem;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2rem;
+  }
+
+  .info-picker-center-text{
+    margin-top:5rem;
+    margin-left:20rem;
+    margin-right:20rem;
+    font-size: 2rem;
+  }
+
+  .info-picker-lower-center-text{
+        padding-top:0;
+        font-size: 1rem;
+        color:#d31010;
+
+  }
+  .selection-circle-active{
+     margin:0.1rem;
+     border: 0.1rem solid #0f00bf;
+   
+}
+.selection-circle{
+    margin:0.2rem;
+    background-color:  #0f00bf;
+    
+}
+.circle{
+    float: left;
+    width: 0.5rem;
+    height: 0.5rem; 
+    border-radius: 50%;
+}
+
+.info-picker-lower-selector{
+ margin-left:44rem;
+}
+
+.info-picker-container:after{
+    content:"";
+    clear: both;
+}
+
+.bottom-box-container{
+    margin-top:10rem;
+}
+
+.bottom-container{
+    margin-top:10rem;
+    width:118rem;
+    height:35rem;
+    background-color: #6ba3ff;
+    
+}
+
+.bottom-container-title{
+   padding-top:3rem;
+   color: #ffffff;
+   text-align: center;
+   font-size: 2rem;
+  
+}
+
+.bottom-form-container{
+    position: relative; 
+    width:30;
+    margin-left:35rem;
+    margin-right:35rem;
+    height:3rem;
+    color:white;
+}
+::-webkit-input-placeholder { 
+    color: #ffffff;
+  }
+.input-field{
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px ;
+    color:#ffffff;
+    width: 21rem;
+    height:2rem;
+    margin:1rem;
+    border-bottom: solid 1px #ffffff;
+ }
+
+.last-field{
+    display: block;
+    width:44.5rem;
+}
+
+
+.input-field:focus {
+    box-shadow: none;
+    outline: none;
+    background-position: 0 0;
+   
+     
+    
+  }
+
+
+  .bottom-form-text{
+      position: relative;
+      margin-top: 4rem;
+      font-size:1rem;
+  }
+  .form-button{
+      width:100%;
+      height:3rem;
+      color:white;
+      background-color:transparent;
+      border: none;
+  }

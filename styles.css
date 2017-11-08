@@ -1,6 +1,10 @@
 body {
     font-size: 16px;
   }
+  #page-wrap {
+    width:118rem;
+    margin: 0 auto;
+    }
 .logo{
     position: fixed;
     left:40px;
@@ -22,16 +26,14 @@ body {
     width: 50%;
     height: auto;
     margin: 0 auto;
-    /* left:40%; */
     padding: 10px;
     position: relative;
-    
     white-space: nowrap;
     overflow: hidden;
 
 }
 .hedder-link{
-    font-size: 130%;
+   font-size: 130%;
    color:#e234b7;
    margin: 30px;
 
@@ -42,10 +44,8 @@ a.button-hover:hover{
 
 .container-one{
     
-    height:100%
+    height:55rem;
 }
-
-
 
 .image{
     width:100rem;
@@ -53,13 +53,14 @@ a.button-hover:hover{
      top: 0;
 }
 .message-box{
-    position: absolute;
-    top: 500px;
+    position: relative;
     left: 650px;
     width: 600px;
     height: 400px;
  }
-
+.upper-box{
+    top: -200px;
+}
  .textbox{
     width:100%;
     height: 85%;
@@ -136,60 +137,62 @@ a.button-hover:hover{
 }
 
 .services-container{
-    position: absolute;
     width:118rem;
-    
-    margin-top:18rem;;
-    height:20rem;
-    
+    height:15rem;
+    background-color: #E4DA36; 
 }
-.service-box{
-   
-    width:100%;
-    height:100%;
-    background-color: #E4DA36;
-   
-    clear: both;
-}
+
 .service-main-title{
-    margin-left:15%;
-    padding:2%;
+    padding-left:1%;
     font-size: 300%;
 
 }
 .services{
-    margin-left:15%;
-    margin-right:15%
+    position: relative;
+    margin-left:20%;
+    margin-right:10%;
     
 }
+
 .service{
-    
     margin:2%;
-    padding: 1%;
-   float:left;
+  
+    float:left;
     background-color: #e2e2e2;
     height: 20rem;
-    width:27%;
+    width:25%;
     outline: 2px solid #e2e2e2 ;
     outline-offset: 3px;
     
 }
+
+
+.services-wraper{
+    position:relative;
+    /* padding-top: 1%; */
+}
+
 .service-title{
     position: relative;
-    
+    padding: 5%;
     width:15%;
-    font-size:300%;
+    font-size:200%;
     color:blue;
         
 
 }
-.service-title:after{
-    content:"";
-
-}
-
 .serive-text{
     position: relative;
-    margin-top: 7%;
+    margin-top: 5%;
 
 }
+
+/* general  */
+
+.clear{
+    content:"";
+    clear: both;
+     
+}
+
+
