@@ -1,13 +1,14 @@
 body {
     font-size: 16px;
   }
-  #page-wrap {
-    /* position: static; */
+ #page-wrap {
+    display:flex;
+    flex-flow: column nowrap;
     width: 1440px;
     margin: 0 auto; 
     }
 header{
-   position: fixed; 
+    position: fixed; 
     width: 100%;
     left:0;
     z-index:20;
@@ -22,7 +23,6 @@ header{
     margin-top:30px;
 }
 nav{
-    width: 50%;
     height: 100px;
     margin: 0 auto;
     padding: 10px;
@@ -35,6 +35,8 @@ nav{
 }
 
 section{
+    display:flex;
+    flex-flow: row wrap;
     left: 0;
     width:100%;
     height:1000px;
@@ -45,15 +47,16 @@ section{
 }
 .center-meessage-container{
     position: relative;
+    
+    margin:0 auto;
     margin-top:-250px;
-    left:40%;
     height:400px;
     width: 600px;
     
 
 }
 .messag-box{
-    background-color: #E6E6E6;
+    background-color: #BDBDBD;
     height:85%;
 
 }
@@ -70,33 +73,29 @@ section{
 .button-box{
     height:60px;
     display: -webkit-flex; /* Safari */
-    display: flex; 
+ 
   }
 
 .red-button{
     display: flex; 
-    position: relative;
-    width:60px;
+    width:140px;
     height:100%;
     background-color:#0101DF;
-    left:50%;
+    margin-left:50%;
     justify-content: center;
     align-items: center;
+
 
 }
 
 .red-button-message{
-    display: flex; 
-    position: relative;
-    right:0;
-    width:40%;
+    width:100%;
     height:100%;
-    right:-300px;
     background-color:#DF0101;
-    justify-content: center;
-    align-items: center;
+  
 }
 .red-button-message p{
+    text-align: center;
     font-size: 1.3rem;
  color: #FDFBFB
 }
@@ -107,5 +106,52 @@ section{
 .services-selection-container{
 
     height:300px;
-    background-color: blue;
+    width:100%;
+    background-color:#D7DF01;
+
+}
+
+.services-container{
+    display:flex;
+    flex-flow: row wrap;
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+
+}
+.services-container-title{
+    width:100%;
+
+}
+.services-container-title p{
+    margin-left:2%;
+    font-size: 3rem;
+
+
+}
+.service{
+    background-color:#D8D8D8;
+    width:29%;
+    height:300px;
+    margin:2%
+}
+
+.testimonial-container{
+    width:100%;
+    height:300px;
+    background-color:#D8D8D8;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow{
+     width:20%;
+  
+}
+.testimonial-content{
+    width:60%;
+
+}
+.second-container{
+    width: 700px;
 }
