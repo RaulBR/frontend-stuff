@@ -97,7 +97,7 @@ section{
 .red-button-message p{
     text-align: center;
     font-size: 1.3rem;
- color: #FDFBFB
+    color: #FDFBFB
 }
 .fa-plus{
     color:white;
@@ -144,7 +144,7 @@ section{
     align-items: center;
     justify-content: center;
 }
-.arrow{
+.info-picker-arow{
      width:20%;
   
 }
@@ -154,4 +154,9 @@ section{
 }
 .second-container{
     width: 700px;
+}
+footer{
+    background-color:#0174DF; 
+    height:500px;
+    width:100%;
 }
