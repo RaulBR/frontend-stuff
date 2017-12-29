@@ -1,39 +1,65 @@
 body {
     font-size: 16px;
   }
- #page-wrap {
+  #page-wrap {
     display:flex;
     flex-flow: column nowrap;
     width: 80%;
     margin: 0 auto; 
     }
+    @media only screen and (max-width: 1440px) {
+   #page-wrap {
+     width: 100%;
+   
+    }
+
+}
+
+
 header{
     position: fixed; 
     width: 100%;
     left:0;
     z-index:20;
 }
+@media only screen and (min-width: 320px) {
 .media-logo-container{
     position: fixed; 
     top:200px;
     right:15px;
     z-index:1;
 }
+
 .media-logo{
     margin-top:30px;
 }
+}
 nav{
     height: 100px;
-    margin: 0 auto;
-    padding: 10px;
     white-space: nowrap;
     overflow: hidden;
+    background-color: white;
+    width:100%;
+    top:0;
+    z-index:2;
+}
+nav::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.button-grup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .buttons{
     margin:25px;
     display:inline-block;
 }
-
+.mobile-meniu{
+    display:none;
+}
 section{
     display:flex;
     flex-flow: row wrap;
@@ -46,7 +72,7 @@ section{
     width: 90%;
 }
 .center-meessage-container{
-    position: relative;
+    /* position:absolute; */
     
     margin:0 auto;
     margin-top:-250px;
@@ -110,6 +136,12 @@ section{
     background-color:#D7DF01;
 
 }
+.services-selection-container:after{
+        content:"";
+        display: block;
+        clear: both;
+
+}
 
 .services-container{
     display:flex;
@@ -119,6 +151,7 @@ section{
     margin: 0 auto;
 
 }
+
 .services-container-title{
     width:100%;
 
@@ -129,13 +162,48 @@ section{
 
 
 }
-.service{
-    background-color:#D8D8D8;
-    width:29%;
-    height:300px;
-    margin:2%
+@media only screen and (max-width: 700px) {
+    section.service-section{
+        display:flex;
+        flex-flow: row wrap;
+        height:2300px;
+    }
+    .service{
+        background-color:#D8D8D8;
+        width:100%;
+        height:300px;
+        margin:2%  
+    }
+
+    .services-container{
+        width:100%;
+    }
+    .services-container:after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+
 }
 
+@media only screen and (min-width: 700px) {
+    .service{
+        background-color:#D8D8D8;
+        width:29%;
+        height:300px;
+        margin:2%
+    }
+
+}
+.service-title{
+    margin-left: 10%;
+    font-size: 1.3rem;
+    color:#0174DF; 
+}
+.service-text{
+    margin-left: 10%;
+    
+}
 .testimonial-container{
     width:100%;
     height:300px;
@@ -174,7 +242,7 @@ text-align: center;
 .footer-content{
     display: flex;
     align-items: center;
-   justify-content: center;
+    justify-content: center;
 }
 .form{
     width:50%;
@@ -208,3 +276,73 @@ text-align: center;
 .footer-text{
     margin: 4%;
 }
+
+.clear{
+    content:"";
+    display: block;
+    clear: both;
+}
+
+@media only screen and (max-width: 320px) {
+    /* #page-wrap {
+      width: 320px;
+    
+     } */
+     nav{
+        position:fixed;
+        overflow: hidden;
+        height: 60px;
+     }
+    .buttons{
+        display:none;
+    }
+.page-logo{
+    width: 50px;
+    height:50px;
+   
+
+}
+.media-logo-container{
+     display:flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+   
+    bottom:0;
+    width:100%;
+    background-color: white;
+}
+
+.media-logo{
+    margin:20px;
+}
+
+.red-button{
+    margin-left:0%;
+}
+.form{
+    width:90%;
+}
+.input-field{
+    width:100%;
+}
+
+.mobile-meniu{
+display:block;
+position: fixed; 
+top:20px;
+right:15px;
+z-index:1;
+
+}
+.fa.fa-bars{
+    font-size:1.5rem;
+}
+.image{
+    display: none;
+}
+.center-meessage-container{
+    top:260px;
+}
+
+ }
