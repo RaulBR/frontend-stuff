@@ -7,7 +7,7 @@ body {
     width: 80%;
     margin: 0 auto; 
     }
-    @media only screen and (max-width: 1440px) {
+    @media only screen and (max-width: 1920px) {
    #page-wrap {
      width: 100%;
    
@@ -22,7 +22,7 @@ header{
     left:0;
     z-index:20;
 }
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 550px) {
 .media-logo-container{
     position: fixed; 
     top:200px;
@@ -33,13 +33,20 @@ header{
 .media-logo{
     margin-top:30px;
 }
+.page-logo{
+    width:70px;
+    height:70px;
+    margin:10px;
 }
+}
+
 nav{
     height: 100px;
     white-space: nowrap;
     overflow: hidden;
     background-color: white;
     width:100%;
+    height:100px;
     top:0;
     z-index:2;
 }
@@ -56,7 +63,12 @@ nav::after{
 .buttons{
     margin:25px;
     display:inline-block;
+    color:red; 
 }
+ .buttons:hover { 
+    color:red;
+ }
+
 .mobile-meniu{
     display:none;
 }
@@ -64,7 +76,7 @@ section{
     display:flex;
     flex-flow: row wrap;
     left: 0;
-    width:100%;
+    width:auto;
     height:1000px;
 }
 .image{
@@ -72,8 +84,7 @@ section{
     width: 90%;
 }
 .center-meessage-container{
-    /* position:absolute; */
-    
+   
     margin:0 auto;
     margin-top:-250px;
     height:400px;
@@ -81,20 +92,32 @@ section{
     
 
 }
-.messag-box{
+.messagebox{
     background-color: #BDBDBD;
     height:85%;
 
 }
 
-.message-box-text{
+.messagebox-text{
+
     padding: 10px;
     margin:30px;
     font-size:1rem;
 }
-.message-box-title{
+.messagebox-title{
+    width:100%;
     color:#0101DF;
     font-size:2rem;
+}
+.messagebox-content {
+    display:flex;
+}
+.content-line{
+    margin-right:15px;
+    margin-top:20px;
+    background-color:#0101DF;
+    width:4rem;
+    height:0.2rem;
 }
 .button-box{
     height:60px;
@@ -162,6 +185,7 @@ section{
 
 
 }
+
 @media only screen and (max-width: 700px) {
     section.service-section{
         display:flex;
@@ -205,20 +229,73 @@ section{
     
 }
 .testimonial-container{
+    display:flex;
+    flex-flow: row wrap;
+    align-items: center;
     width:100%;
     height:300px;
     background-color:#D8D8D8;
-    display:flex;
-    align-items: center;
+    overflow: hidden;
+    
     justify-content: center;
+    border-bottom: 20px solid #00b6ff;
 }
 .info-picker-arow{
-     width:20%;
+    text-align: center;
+    font-size: 3rem;
+    width:20%;
   
 }
 .testimonial-content{
+    display:flex;
+    flex-flow: column wrap;
+    justify-content: center;
     width:60%;
+  
 
+}
+.testimonial-title{
+    width:100%;
+    margin-top: 0px;
+    text-align: center;
+}
+.testimoniual-autor{
+    display:flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    color:#d60000;
+    font-size: 0.7rem;
+ 
+    
+}
+.testimoniual-autor p{
+    margin-top:0px;
+
+ 
+    
+}
+.testimonial-picker{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
+}
+.picker-position{
+    width: 8px;
+    height: 8px;
+    margin:5px;
+    border-radius: 50%;
+    background-color: #012b8c;
+
+}
+
+.selected{
+    width: 5px;
+    height: 5px;
+    background-color:transparent; 
+    border: 2px solid #012b8c;
+    
 }
 .second-container{
     width: 700px;
@@ -283,12 +360,13 @@ text-align: center;
     clear: both;
 }
 
-@media only screen and (max-width: 320px) {
-    /* #page-wrap {
-      width: 320px;
-    
-     } */
-     nav{
+@media only screen and (max-width: 550px) {
+    #page-wrap {
+        width: auto
+      
+       }
+   
+    nav{
         position:fixed;
         overflow: hidden;
         height: 60px;
@@ -307,8 +385,7 @@ text-align: center;
     align-items: center;
     justify-content: center;
     position: fixed;
-   
-    bottom:0;
+      bottom:0;
     width:100%;
     background-color: white;
 }
@@ -340,9 +417,22 @@ z-index:1;
 }
 .image{
     display: none;
+    
+}
+.mob{
+      width: 100%;
+
+    background-image: url("background-mobil.png");
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-size: 550px 300px;
+  
+
+
 }
 .center-meessage-container{
-    top:260px;
-}
+    width: 100%;
+    margin-top:-50px;
 
- }
+}
+}
