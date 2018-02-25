@@ -159,7 +159,6 @@ section {
     justify-content: center;
     align-items: center;
 
-
 }
 
 .red-button-message{
@@ -178,16 +177,9 @@ section {
   
 }
 .services-selection-container{
-
     height:300px;
     width:100%;
     background-color:#D7DF01;
-
-}
-.services-selection-container:after{
-        content:"";
-        display: block;
-        clear: both;
 
 }
 
@@ -214,7 +206,6 @@ h2.services-container-title {
 @media only screen and (max-width: 700px) {
     section.service-section{
         display:flex;
-        flex-flow: row wrap;
         height:2300px;
     }
     .service{
