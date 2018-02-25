@@ -91,12 +91,9 @@ section {
 
 .background-png{
     background-image: url('./background.png');
-    /* ( http://moheban-ahlebeit.com/images/Banana-Wallpapers/Banana-Wallpapers-24.jpg); */
     background-position: left top;
     background-size: contain;
     background-repeat: no-repeat;
-  
-    /* justify-content: flex-end; */
     background-size: 90% ;
  
 }
@@ -124,29 +121,32 @@ section {
 }
 
 .messagebox-text{
-
+    position: relative;
     padding: 10px;
     margin:30px;
-    font-size:1rem;
-}
+ }
 .messagebox-title{
-    width:100%;
+    width: 100%;
     color:#0101DF;
-    font-size:2rem;
+    
 }
-.messagebox-content {
-    display:flex;
+
+.text-with-icon{
+    display: block;
+    margin-left:4rem;
+    
 }
-.content-line{
-    margin-right:15px;
-    margin-top:20px;
-    background-color:#0101DF;
-    width:4rem;
-    height:0.2rem;
+.text-with-icon:before {
+    content: '';
+    width: 3rem;
+    border-bottom: 2px solid #0101DF;
+    position: absolute;
+    left: 0.4rem;
+    top: 85px;
 }
 .button-box{
     height:60px;
-    display: -webkit-flex; /* Safari */
+    display:flex; 
  
   }
 
@@ -204,7 +204,7 @@ section {
     width:100%;
 
 }
-.services-container-title p{
+h2.services-container-title {
     margin-left:2%;
     font-size: 3rem;
 
@@ -323,7 +323,7 @@ section {
     
 }
 .second-container{
-
+    top: 50px;
     width: 700px;
 }
 footer{
@@ -333,12 +333,12 @@ footer{
     height:500px;
     width:100%;
 }
-footer p {
+footer h2 {
     color:white;
 }
 
 .footer-contact{
-font-size:3rem;
+font-size:2rem;
 width:100;
 text-align: center;
 }
