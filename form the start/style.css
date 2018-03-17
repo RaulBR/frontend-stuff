@@ -106,13 +106,6 @@ section {
     background-size: 90% ;
  
 }
-/* section{
-    display:flex;
-    flex-flow: row wrap;
-    left: 0;
-    width:auto;
-    height:1000px;
-} */
 
 .center-meessage-container{
     position: absolute;
@@ -215,7 +208,7 @@ h2.services-container-title {
 @media only screen and (max-width: 700px) {
     section.service-section{
         display:flex;
-        height:2300px;
+        height:2100px;
     }
     .service{
         background-color:#D8D8D8;
@@ -223,6 +216,7 @@ h2.services-container-title {
         height:300px;
         margin:2%  
     }
+ 
 
     .services-container{
         width:100%;
@@ -391,7 +385,7 @@ text-align: center;
         width: auto
       
        }
-   
+       
     nav{
         position:fixed;
         overflow: hidden;
@@ -406,6 +400,13 @@ text-align: center;
    
 
 }
+.second-container{
+    top:400px;
+}
+.background-png{
+    height:400px;
+}
+
 .media-logo-container{
      display:flex;
     align-items: center;
