@@ -1,11 +1,12 @@
 window.setInterval(function(){
     changeTestimonial(1);
   }, 5000);
+  
 changeTestimonial = (direction) =>{
     let selectors = document.getElementsByClassName("picker-position");
     let celardValue = clearPoint(selectors);  
     let pointer =   celardValue + direction;
-     if(pointer <   0){
+     if(pointer <  0){
             pointer = selectors.length - 1
      }  else if (pointer >selectors.length - 1){
             pointer  = 0;
@@ -19,14 +20,12 @@ let  setTestimonialText = (pointer)=>{
      document.getElementsByClassName("testimonial-text")[0].innerHTML = '<p>'+ testimonials[pointer].text +'</p>'
      document.getElementsByClassName("autor-text")[0].innerHTML =   testimonials[pointer].autorName 
      document.getElementsByClassName("autor-ocupation")[0].innerHTML = testimonials[pointer].ocupation 
-    console.log(testimonials);
 
 }
 
-
-
 let clearPoint = (selectors)=>{
-     
+   
+  
     for(let i = 0; i < selectors.length; i++){
         if (selectors[i].className === "picker-position  selected"){
            selectors[i].outerHTML = '<div class= "picker-position"></div>';
@@ -51,5 +50,14 @@ let getTestimonials=()=>{
     ];
     return testimoniales;
 
+
+}
+
+let scroolSmooth = ()=>{
+    
+      document.getElementsByClassName("background-png")[0]
+      .scrollIntoView({
+            behavior :'smooth'
+      });
 
 }
