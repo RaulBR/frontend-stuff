@@ -77,11 +77,19 @@ header::after{
 .buttons{
     margin:25px;
     display:inline-block;
-    color:red; 
+  
+    
 }
- .buttons:hover { 
-    color:red;
- }
+li.buttons > a{
+    text-decoration:none;
+    color:black;
+}
+
+li.buttons > a:hover{
+    
+    color:#DF0101;
+}
+
 
 .mobile-meniu{
     display:none;
@@ -263,7 +271,11 @@ h2.services-container-title {
     text-align: center;
     font-size: 3rem;
     width:20%;
-  
+    cursor: pointer; 
+    user-select: none;
+}
+.info-picker-arow:hover{
+    color:#d60000;
 }
 .testimonial-content{
     display:flex;
@@ -278,6 +290,9 @@ h2.services-container-title {
     margin-top: 0px;
     text-align: center;
 }
+.testimonial-text{
+    height:130px;
+}
 .testimoniual-autor{
     display:flex;
     flex-flow: column wrap;
@@ -285,7 +300,7 @@ h2.services-container-title {
     justify-content: center;
     color:#d60000;
     font-size: 0.7rem;
- 
+    
     
 }
 .testimoniual-autor p{
@@ -394,11 +409,18 @@ text-align: center;
     .buttons{
         display:none;
     }
+    .testimonial-content{
+        width:90%;
+    }
+
 .page-logo{
     width: 50px;
     height:50px;
    
 
+}
+.info-picker-arow{
+    display:none;
 }
 .second-container{
     top:400px;
