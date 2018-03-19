@@ -77,28 +77,38 @@ function scroolSmooth() {
 }
 
 function gohere(x){
-    if (x.innerHTML === "Home"){
-        document.getElementsByClassName("background-png")[0]
-        .scrollIntoView({
-            behavior: 'smooth'
-        });
+    let classVal;
+    switch (x.innerHTML){
+     case "Home":
+        classVal = "background-png"
+        break;
+     case "Services":
+         classVal = "service-section"
+         break
+    case "Testimoniales":
+        classVal = "testimoniales"
+         break
+    case "Contact us":
+        classVal ="contacts"
+          break
+    default:
+        classVal = "background-png"
     }
-    if (x.innerHTML === "Services"){
-        document.getElementsByClassName("service-section")[0]
-        .scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-    if (x.innerHTML === "Testimoniales"){
-        document.getElementsByClassName("testimoniales")[0]
-        .scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-    if (x.innerHTML === "Contact us"){
-        document.getElementsByClassName("contacts")[0]
-        .scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
+    //  classVal = "background-png"
+    // if (x.innerHTML === "Home"){
+    //     classVal = "background-png"
+    // }
+    // if (x.innerHTML === "Services"){
+    //     classVal = "service-section"
+    // }
+    // if (x.innerHTML === "Testimoniales"){
+    //     classVal = "testimoniales"
+    // }
+    // if (x.innerHTML === "Contact us"){
+    //     classVal= "contacts"
+    // }
+    document.getElementsByClassName(classVal )[0]
+    .scrollIntoView({
+        behavior: 'smooth'
+    });
 }
