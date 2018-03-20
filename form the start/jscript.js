@@ -94,10 +94,19 @@ function gohere(x){
     default:
         classVal = "background-png"
     }
-
- 
     document.getElementsByClassName(classVal )[0]
     .scrollIntoView({
         behavior: 'smooth'
     });
+}
+
+
+function getMeniu(){
+    let nav = document.getElementsByTagName("nav")[0]
+   console.log(nav) 
+   if (!nav.classList.contains("mobileNamv")){
+   nav.classList.add("mobileNamv")
+   }else{
+    nav.classList.remove("mobileNamv")
+   }
 }
