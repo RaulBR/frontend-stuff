@@ -94,19 +94,7 @@ function gohere(x){
     default:
         classVal = "background-png"
     }
-    //  classVal = "background-png"
-    // if (x.innerHTML === "Home"){
-    //     classVal = "background-png"
-    // }
-    // if (x.innerHTML === "Services"){
-    //     classVal = "service-section"
-    // }
-    // if (x.innerHTML === "Testimoniales"){
-    //     classVal = "testimoniales"
-    // }
-    // if (x.innerHTML === "Contact us"){
-    //     classVal= "contacts"
-    // }
+ 
     document.getElementsByClassName(classVal )[0]
     .scrollIntoView({
         behavior: 'smooth'
