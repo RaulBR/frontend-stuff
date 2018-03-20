@@ -94,8 +94,9 @@ function gohere(x){
     default:
         classVal = "background-png"
     }
-    
-    document.getElementsByClassName(classVal)[0]
+
+ 
+    document.getElementsByClassName(classVal )[0]
     .scrollIntoView({
         behavior: 'smooth'
     });
