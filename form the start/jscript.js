@@ -102,8 +102,7 @@ function gohere(x){
 
 
 function getMeniu(){
-    let nav = document.getElementsByTagName("nav")[0]
-   console.log(nav) 
+   let nav = document.getElementsByTagName("nav")[0]
    if (!nav.classList.contains("mobileNamv")){
    nav.classList.add("mobileNamv")
    }else{

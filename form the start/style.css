@@ -99,18 +99,18 @@ section {
 }
 
 .background-png{
-    background-image: url('./background.png');
+    background-image: url('./background-2.png');
     background-position: left top;
     background-size: contain;
     background-repeat: no-repeat;
-    background-size: 90% ;
+    background-size: 93% ;
  
 }
 
 .center-meessage-container{
     position: absolute;
     margin:0 auto;
-    margin-top:300px;
+    margin-top:350px;
     height:400px;
     width: 600px;
     
