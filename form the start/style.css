@@ -136,6 +136,7 @@ section {
 .text-with-icon{
     display: block;
     margin-left:4rem;
+    position: relative;
     
 }
 .text-with-icon:before {
@@ -334,6 +335,8 @@ footer{
     height:500px;
     width:100%;
 }
+a,
+b,
 footer h2 {
     color:white;
 }

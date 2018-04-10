@@ -2,43 +2,81 @@
 //     changeTestimonial(1);
 //   }, 5000);
 
-function changeTestimonial(direction) {
-    let selectors = document.getElementsByClassName("picker-position");
-    let position = getRemovedPosition(selectors);
-    let pointer =  getNextPosition(position,direction,selectors.length);
-    setTestimonialText(pointer);
-    //set dot indicator
-    selectors[pointer].classList.add('selected');  
-}
 
-function getNextPosition(position,direction,length){
-    let maxPosition = length - 1;
-    let nextVal = position + direction;
-    if (nextVal < 0) {
-        nextVal = maxPosition
-    } else if (nextVal > maxPosition) {
-        nextVal = 0;
-    }
-    return nextVal;
-}
+//Object litteral pattern 
+(function(){
+let testimonialPicker = {
+    testimonials: getTestimonials(),
+    init:function (){
+        this.cacheDom();
+        this.bindevents();
+        this.render(0);
+        },
+        cacheDom:function(){
+           this.selectors = document.getElementsByClassName("picker-position");
+           this.teamplate = document.getElementsByClassName("change-testimonial")[0];
+           this.navigate = document.getElementsByClassName("info-picker-arow");
+            
+        },
+        bindevents: function(){
+            Array.from(this.navigate).forEach(element => {
+                element.addEventListener("click", this.changeTestimonial.bind(this));
+            });
 
-function getRemovedPosition(selectors){
-    let position;
-    Array.from(selectors).forEach((selected, index) => {
-        if (selected.classList.contains('selected')) {
-            selected.classList.remove('selected');
-            position = index;
-        };
-    }); 
-    return position;  
-}
+            Array.from(this.selectors).forEach(element => {
+                element.addEventListener("click", this.changeToSpecificTestimonial.bind(this));
+            });
+      
+        },
+       render: function(testimonialPozition){
+            this.teamplate.innerHTML = `<div class= "testimonial-text" value = "${testimonialPozition}"> 
+                                        <p>${this.testimonials[testimonialPozition].text} </p>
+                                         </div>
+                                         <div class = "testimoniual-autor">
+                                         <p class = "autor-text"> ${this.testimonials[testimonialPozition].autorName} </p>
+                                        <p class = "autor-ocupation">${this.testimonials[testimonialPozition].ocupation}</p>
+                                        </div>  `;
+            this.removeSelected();
+            this.selectors[testimonialPozition].classList.add('selected');
+       },
 
-function setTestimonialText(pointer) {
-    let testimonials = getTestimonials();
-    document.getElementsByClassName("testimonial-text")[0].innerHTML = "<p>"+testimonials[pointer].text +"</p>";
-    document.getElementsByClassName("autor-text")[0].innerHTML = testimonials[pointer].autorName;
-    document.getElementsByClassName("autor-ocupation")[0].innerHTML = testimonials[pointer].ocupation;
-}
+        changeTestimonial: function(event){
+            let direction = event.target.getAttribute('value');
+            let maxPosition = Array.from(this.selectors).length - 1;
+            let position  = this.teamplate.getElementsByClassName("testimonial-text")[0].getAttribute('value');
+          
+            let nextVal = parseInt(position) + parseInt(direction); 
+            console.log( nextVal);
+             if (nextVal < 0) {
+                 nextVal = maxPosition
+            } else if (nextVal > maxPosition) {
+                 nextVal = 0;
+            };
+           
+             this.render(nextVal);
+        },
+
+        changeToSpecificTestimonial: function(event){
+            let position = event.target.getAttribute('value');
+            this.render(position);
+        },
+
+        removeSelected: function(){
+             Array.from(this.selectors).forEach((selected, index) => {
+                if (selected.classList.contains('selected')) {
+                     selected.classList.remove('selected');
+                     position = index;
+                 };
+             });
+        },
+
+        
+
+
+};
+testimonialPicker.init();
+
+})();
 
 function getTestimonials() {
     let testimoniales = [
@@ -54,58 +92,16 @@ function getTestimonials() {
             autorName: 'Bitum Uscat',
             ocupation: 'DIFilozof'
         },
-        {   text: `In textul 3 se regasesc secretele unifersului, pritre ele este si cel mai important dinte ele si anume
+        {
+            text: `In textul 3 se regasesc secretele universului, pritre ele este si cel mai important dinte ele si anume
                     daca spui un secret, nu mai e secret (numa zic)`,
             autorName: 'Vecin Udelatrei',
-            ocupation: 'Trilosov Terodactol' }
+            ocupation: 'Trilosov Terodactol'
+        }
 
     ];
     return testimoniales;
 }
 
-function goToThisPosition(x){
-    let selectors = document.getElementsByClassName("picker-position");
-    let position = getRemovedPosition(selectors);
-    selectors[x].classList.add('selected');
-    setTestimonialText(x);
-}
-function scroolSmooth() {
-    document.getElementsByClassName("background-png")[0]
-        .scrollIntoView({
-            behavior: 'smooth'
-        });
-}
+/// end Object litteral pattern
 
-function gohere(x){
-    let classVal;
-    switch (x.innerHTML){
-     case "Home":
-        classVal = "background-png"
-        break;
-     case "Services":
-         classVal = "service-section"
-         break
-    case "Testimoniales":
-        classVal = "testimoniales"
-         break
-    case "Contact us":
-        classVal ="contacts"
-          break
-    default:
-        classVal = "background-png"
-    }
-    document.getElementsByClassName(classVal )[0]
-    .scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
-
-function getMeniu(){
-   let nav = document.getElementsByTagName("nav")[0]
-   if (!nav.classList.contains("mobileNamv")){
-   nav.classList.add("mobileNamv")
-   }else{
-    nav.classList.remove("mobileNamv")
-   }
-}
