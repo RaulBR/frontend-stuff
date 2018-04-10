@@ -1,7 +1,3 @@
-// window.setInterval(function(){
-//     changeTestimonial(1);
-//   }, 5000);
-
 
 //Object litteral pattern 
 (function(){
@@ -44,16 +40,13 @@ let testimonialPicker = {
             let direction = event.target.getAttribute('value');
             let maxPosition = Array.from(this.selectors).length - 1;
             let position  = this.teamplate.getElementsByClassName("testimonial-text")[0].getAttribute('value');
-          
             let nextVal = parseInt(position) + parseInt(direction); 
-            console.log( nextVal);
-             if (nextVal < 0) {
+            if (nextVal < 0) {
                  nextVal = maxPosition
             } else if (nextVal > maxPosition) {
                  nextVal = 0;
             };
-           
-             this.render(nextVal);
+            this.render(nextVal);
         },
 
         changeToSpecificTestimonial: function(event){
