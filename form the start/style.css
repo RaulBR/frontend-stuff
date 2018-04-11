@@ -135,8 +135,7 @@ section {
 
 .text-with-icon{
     display: block;
-    margin-left:4rem;
-    position: relative;
+    margin-left:60px;
     
 }
 .text-with-icon:before {
@@ -479,6 +478,14 @@ z-index:1;
     margin-top:-50px;
 
 }
+.text-with-icon{
+    display: block;
+    margin-left:0px;
+    
+}
+.text-with-icon:before {
+    display: none;
+}
 }
 
 /* for js */
@@ -490,4 +497,7 @@ z-index:1;
 @keyframes example {
     from { height: 100px;}
     to {height: 500px;}
+}
+.teamplate{
+    display: none;
 }
