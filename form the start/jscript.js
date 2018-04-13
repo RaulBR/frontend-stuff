@@ -13,7 +13,6 @@
             this.changeTestimonialChash = document.getElementsByClassName("change-testimonial")[0];
             this.teamplates = this.changeTestimonialChash.getElementsByClassName("teamplate");
             this.navigate = document.getElementsByClassName("info-picker-arow");
-
         },
         eventBindings: function () {
             Array.from(this.navigate).forEach(element => {
@@ -22,7 +21,6 @@
             Array.from(this.selectors).forEach(element => {
                 element.addEventListener("click", this.changeToSpecificTestimonial.bind(this));
             });
-
         },
         render: function (testimonialPozition) {
             this.removeSelected();
@@ -37,7 +35,6 @@
                     this.teamplates[index].classList.add("hide");
                 }
             });
-
         },
         changeTestimonial: function (event) {
             let direction = event.target.getAttribute('value');
@@ -45,9 +42,6 @@
             let position = Array.from(this.teamplates).findIndex((teamplate) => {
                 return !teamplate.classList.contains("hide");
             });
-
-
-
             let nextVal = parseInt(position) + parseInt(direction);
             if (nextVal < 0) {
                 nextVal = maxPosition
@@ -56,12 +50,10 @@
             };
             this.render(nextVal);
         },
-
         changeToSpecificTestimonial: function (event) {
             let position = event.target.getAttribute('value');
             this.render(position);
         },
-
         removeSelected: function () {
             Array.from(this.selectors).forEach((selected, index) => {
                 if (selected.classList.contains('selected')) {
