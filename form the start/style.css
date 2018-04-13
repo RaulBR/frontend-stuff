@@ -498,6 +498,6 @@ z-index:1;
     from { height: 100px;}
     to {height: 500px;}
 }
-.teamplate{
+.hide{
     display: none;
 }
