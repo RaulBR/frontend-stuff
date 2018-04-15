@@ -11,7 +11,7 @@
             this.changeTestimonialChash = document.querySelector('.change-testimonial');
             this.teamplates = this.changeTestimonialChash.querySelectorAll(".teamplate");
             this.selectors = document.querySelectorAll(".picker-position");
-            this.navigate = document.querySelectorAll(".info-picker-arow");
+            this.navigate = document.querySelectorAll(".info-picker-arow span");
         },
         eventBindings() {
             Array.from(this.navigate).forEach(element => {
@@ -28,11 +28,11 @@
         },
         setTestimomialTeamplate(testimonialPozition) {
             Array.from(this.teamplates).forEach((teamplate, index) => {
-                ( parseInt(testimonialPozition) === index ?  this.teamplates[index].classList.remove("hide") : this.teamplates[index].classList.add("hide") ) });
-          
+                (parseInt(testimonialPozition) === index ?  this.teamplates[index].classList.remove("hide") : this.teamplates[index].classList.add("hide"))
+            });
         },
         changeTestimonialArrow(event) {
-            event.stopPropagation();
+            // event.stopPropagation();
             let direction = event.target.getAttribute('value');
             let maxPosition = Array.from(this.selectors).length - 1;
             let position = Array.from(this.teamplates).findIndex(teamplate => {
