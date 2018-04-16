@@ -9,16 +9,16 @@
         },
         cacheDom() {
             this.changeTestimonialChash = document.querySelector('.change-testimonial');
-            this.teamplates = this.changeTestimonialChash.querySelectorAll(".teamplate");
+            this.templates = this.changeTestimonialChash.querySelectorAll(".template");
             this.selectors = document.querySelectorAll(".picker-position");
             this.navigate = document.querySelectorAll(".info-picker-arow span");
         },
         eventBindings() {
-            Array.from(this.navigate).forEach(element => {
-                element.addEventListener("click", this.changeTestimonialArrow.bind(this));
+            [...this.navigate].forEach(element => {
+                element.addEventListener("click", ()=>{this.changeTestimonialArrow(event)});
             });
-            Array.from(this.selectors).forEach(element => {
-                element.addEventListener("click", this.changeToSpecificTestimonial.bind(this));
+            [...this.selectors].forEach(element => {
+                element.addEventListener("click",()=>{this.changeToSpecificTestimonial(event)});
             });
         },
         render(testimonialPozition) {
@@ -27,7 +27,7 @@
             this.setTestimomialTeamplate(testimonialPozition);
         },
         setTestimomialTeamplate(testimonialPozition) {
-            Array.from(this.teamplates).forEach((teamplate, index) => {
+            [...this.teamplates].forEach((teamplate, index) => {
                 (parseInt(testimonialPozition) === index ?  this.teamplates[index].classList.remove("hide") : this.teamplates[index].classList.add("hide"))
             });
         },
@@ -51,7 +51,7 @@
             this.render(position);
         },
         removeSelected() {
-            Array.from(this.selectors).forEach(selected => selected.classList.contains('selected') ? selected.classList.remove('selected'):'')
+            [...this.selectors].forEach(selected => selected.classList.contains('selected') ? selected.classList.remove('selected'):'')
         },
 
 
