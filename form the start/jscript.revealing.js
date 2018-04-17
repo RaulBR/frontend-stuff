@@ -17,7 +17,7 @@ let testimonialPicker = (function () {
         });
     });
     //render 
-    render = (testimonialPozition) => {
+    function render(testimonialPozition) {
         removeSelected();
         if (testimonialPozition < 0) {
             testimonialPozition = maxPosition
@@ -28,38 +28,38 @@ let testimonialPicker = (function () {
         setTestimomialTeamplate(testimonialPozition);
     }
     //services
-    changeTestimonialByOne = (event) => {
+   function  changeTestimonialByOne(event) {
         event.stopPropagation();
         let direction = event.target.getAttribute('value');
         render(getnextVal(direction));
     }
-    changeToSpecificTestimonial = (event) => {
+    function changeToSpecificTestimonial(event) {
         let position = event.target.getAttribute('value');
         render(position);
     }
-    removeSelected = () => {
+    function removeSelected () {
         [...selectors].forEach(selected => selected.classList.contains('selected') ? selected.classList.remove('selected') : '');
     }
-    setTestimomialTeamplate = (testimonialPozition) => {
+    function setTestimomialTeamplate(testimonialPozition){
         [...templates].forEach((template, index) => {
             let templateIn = templates[index].classList;
             (parseInt(testimonialPozition) === index ? templateIn.remove("hide") : templateIn.add("hide"));
         });
     }
-    getnextVal = (direction) => {
+    function getnextVal(direction){
         let position = [...templates].findIndex(teamplate => {
             return !teamplate.classList.contains("hide");
         });
         return nextVal = parseInt(position) + parseInt(direction);
     }
     //returns
-    renderNext = () => {
+    function renderNext() {
         render(getnextVal(1));
     }
-    renderPrevious = () => {
+    function renderPrevious(){
         render(getnextVal(-1));
     }
-    renderAny = (pozition) => {
+   function  renderAny(pozition){
         render(pozition);
     }
     return {
