@@ -28,7 +28,7 @@ let testimonialPicker = (function () {
         setTestimomialTeamplate(testimonialPozition);
     }
     //services
-   function  changeTestimonialByOne(event) {
+   function changeTestimonialByOne(event) {
         event.stopPropagation();
         let direction = event.target.getAttribute('value');
         render(getnextVal(direction));
@@ -59,7 +59,7 @@ let testimonialPicker = (function () {
     function renderPrevious(){
         render(getnextVal(-1));
     }
-   function  renderAny(pozition){
+   function renderAny(pozition){
         render(pozition);
     }
     return {
@@ -67,4 +67,28 @@ let testimonialPicker = (function () {
         renderPrevious: renderPrevious,
         renderAny: renderAny
     }
+})();
+
+let contactPopup = (function(){
+//chashDom
+    let contactaction = document.querySelector('.contacts');
+    let backdropTeamplate = document.querySelector('.backdrop');
+    let contactTeamplate = document.querySelector('.contact-form');
+//bind events
+    contactaction.addEventListener("click", () => {startPopup()});
+    backdropTeamplate.addEventListener("click", () => {stopPopup(event)});
+//rener
+function render(displayStatus){
+    backdropTeamplate.style.display = 'block';
+    contactTeamplate.style.display = 'block';
+}  
+function startPopup(){
+    backdropTeamplate.style.display = 'block';
+    contactTeamplate.style.display = 'flex';
+render();
+}
+function stopPopup(event){
+    backdropTeamplate.style.display = 'none';
+    contactTeamplate.style.display = 'none';;
+};
 })();
