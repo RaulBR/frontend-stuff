@@ -76,19 +76,18 @@ let contactPopup = (function(){
     let contactTeamplate = document.querySelector('.contact-form');
 //bind events
     contactaction.addEventListener("click", () => {startPopup()});
-    backdropTeamplate.addEventListener("click", () => {stopPopup(event)});
+    backdropTeamplate.addEventListener("click", () => {stopPopup()});
 //rener
 function render(displayStatus){
-    backdropTeamplate.style.display = 'block';
-    contactTeamplate.style.display = 'block';
+    backdropTeamplate.style.display = displayStatus;
+    contactTeamplate.style.display = displayStatus;
 }  
 function startPopup(){
     backdropTeamplate.style.display = 'block';
     contactTeamplate.style.display = 'flex';
-render();
+
 }
-function stopPopup(event){
-    backdropTeamplate.style.display = 'none';
-    contactTeamplate.style.display = 'none';;
+function stopPopup(evnt){
+    render('none');
 };
 })();
