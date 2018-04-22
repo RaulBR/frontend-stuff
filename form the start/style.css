@@ -350,23 +350,23 @@ text-align: center;
     align-items: center;
     justify-content: center;
 }
-.form{
+form{
     width:50%;
     margin:0 auto;
     display: flex;
     flex-flow: row wrap;
 }
 .input-field{
-    width:45%;
-    margin:1%;
-   padding: 1%;
+    width:44%;
+    margin:3%;
    border: 0;
    outline: 0;
    background: transparent;
    border-bottom: 1px solid white;
    color:#FFFFFF;
 }
-.imput-button{
+.input-button{
+    display:none;
     border: 0;
     outline: 0;
     background: transparent;
@@ -377,7 +377,7 @@ text-align: center;
   
 }
 .fill{
-    width:94.5%  ; 
+    width:100%  ; 
 }
 .footer-text{
     margin: 4%;
@@ -504,17 +504,18 @@ z-index:1;
 }
 .backdrop{
     display: none;
-    z-index: 4;
     position: fixed;
     top:0;
     width: 100%;
     height: 100%;
-    background-color:rgba(105,105,105, 0.5)
+    background-color:rgba(105,105,105, 0.5);
+    z-index: 4;
 }
 .contact-form{
     display: none;
     justify-content: center;
     align-items: center;
+    flex-flow: row wrap;
     z-index: 5;
     position: fixed;
     top:50%;
@@ -522,5 +523,5 @@ z-index:1;
     transform: translate(-50%, -50%);
     width: 700px;
     height: 400px;
-    background-color:red;
+    background-color: #0174DF;
 };

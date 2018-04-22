@@ -15,7 +15,7 @@
         },
         eventBindings() {
             [...this.navigate].forEach(element => {
-                element.addEventListener("click", ()=>{this.changeTestimonialArrow(event)});
+                element.addEventListener("click", this.changeTestimonialArrow().bind(this));
             });
             [...this.selectors].forEach(element => {
                 element.addEventListener("click",()=>{this.changeToSpecificTestimonial(event)});
