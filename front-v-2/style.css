@@ -169,6 +169,7 @@ li:hover {
 }
 
 .picture-frame {
+    background-image: url('imgs/1.jpeg');
     height: 340px;
     width: 340px;
     margin-bottom:30px;
@@ -252,6 +253,7 @@ li:hover {
 }
 
 .picture-frame-squere {
+   
     height: 190px;
     width: 290px;
     border-style: solid;
@@ -259,9 +261,28 @@ li:hover {
     border-width: 5px;
     background-color: rgb(51, 51, 51);
     margin-bottom: 30px;
+    filter: grayscale(100%);
+}
+.p-one{
+    background-image: url('imgs/2.jpeg');
+}
+.p-two{
+    background-image: url('imgs/3.jpg');
+}
+.p-three{
+    background-image: url('imgs/4.jpeg');
+}
+.p-four{
+    background-image: url('imgs/5.jpeg');
+}
+.p-five{
+    background-image: url('imgs/6.jpeg');
+}
+.p-six{
+    background-image: url('imgs/7.jpg');
 }
 .picture-frame-squere:hover {
-
+    filter: grayscale(0%);
     border-color: rgb(118, 195, 143)
  
 }
