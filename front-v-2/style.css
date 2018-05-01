@@ -192,18 +192,21 @@ li:hover {
 }
 
 .service:hover {
+      filter:grayscale(75%);
     background-color: rgb(118, 195, 143);
     color: rgb(250, 250, 250);
 }
 
 .service-picture {
+    background-image: url('logos/logo1.png');
+  
     position: absolute;
     left: 50%;
     top: 20px;
     transform: translate(-50%, 0);
     height: 120px;
     width: 120px;
-    background-color: rgb(51, 51, 51);
+   
 }
 
 .service > h3 {
