@@ -1,17 +1,19 @@
 /* colors
  */
-
+ body{
+    background-color: #000000;
+}
 header,
 section.selector {
     /* filter: grayscale(100%); */
-    background-color: rgb(41, 41, 41);
-    /* background-color: rgb(41, 0, 0); */
+    /* background-color: rgb(41, 41, 41); */
+    background-color: rgb(41, 0, 0);
 }
 
 section {
     /* filter: grayscale(100%); */
-    /* background-color: rgb(102, 0, 0); */
-    background-color: rgb(97, 97, 97);
+    background-color: rgb(102, 0, 0);
+    /* background-color: rgb(97, 97, 97); */
 
 }
 
@@ -82,7 +84,7 @@ footer {
     top:10px;
     height:1510px;
     width: 1100px;
-    background: url("bgimage.png") no-repeat  ;
+    /* background: url("bgimage.png") no-repeat  ; */
     background-size: auto;
     z-index: 2;
     opacity: 0.5;
