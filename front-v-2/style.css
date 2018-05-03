@@ -1,5 +1,4 @@
-/* colors
- */
+/* colors */
 
 body {
     background-color: #000000;
@@ -14,6 +13,31 @@ section {
     background-color: rgb(102, 0, 0);
 }
 
+footer,
+.last-work-line,
+.last-work-title {
+    background-color: rgb(48, 48, 48);
+}
+.picture-frame{
+    background-color: rgb(51, 51, 51);
+} 
+textarea,
+.footer>input,
+button,
+footer>h3,
+nav,
+.text-frame,
+h2 {
+    color: rgb(250, 250, 250);
+}
+
+
+.arrow {
+    color: rgb(118, 195, 143);
+}
+
+/* end colors */
+
 h1,
 h2,
 h3,
@@ -25,29 +49,9 @@ footer {
     margin: 0;
     padding: 0;
 }
-
-footer,
-.last-work-line,
-.last-work-title {
-    background-color: rgb(48, 48, 48);
-}
-
-nav,
-.text-frame,
-h2 {
-    color: rgb(250, 250, 250);
-}
-
 h2 {
     font-size: 24px;
 }
-
-.arrow {
-    color: rgb(118, 195, 143);
-}
-
-/* end colors */
-
 html,
 body {
     font-size: 12px;
@@ -116,14 +120,14 @@ li:nth-last-child {
 }
 
 li:hover {
-    color: white;
+    color: rgb(250, 250, 250);
     border-radius: 10px;
     background-color: rgb(118, 195, 143);
 }
 
 .wrap {
     flex-wrap: wrap;
-    justify-content: space-between;
+ 
 }
 
 .text-frame {
@@ -162,12 +166,14 @@ li:hover {
     border-style: solid;
     border-color: rgb(107, 107, 107);
     border-width: 20px;
-    background-color: rgb(51, 51, 51);
+
 }
 
 .service {
+    flex-grow: 1;
+    margin: 10px;
     height: 300px;
-    width: 220px;
+    width: 210px;
     margin-top: 80px;
     margin-bottom: 30px;
     background-color: rgb(250, 250, 250);
@@ -227,12 +233,13 @@ li:hover {
 }
 
 .picture-frame-squere {
+    flex-grow: 1;
+    margin: 10px;
     height: 190px;
     width: 290px;
     border-style: solid;
     border-color: rgb(250, 250, 250);
     border-width: 5px;
-    background-color: rgb(51, 51, 51);
     margin-bottom: 30px;
     filter: grayscale(100%);
 }
@@ -247,8 +254,9 @@ li:hover {
 }
 
 .picture>img {
-    height: 150px;
-    width: 290px;
+    flex-grow: 2;
+    height: 100%;
+    width: 100%;
 }
 
 .picture-title {
@@ -265,8 +273,7 @@ li:hover {
     text-align: left;
     margin: 10px;
     font-size: 12px;
-    color: #ffff;
-    color: #ffff;
+ 
     top: 0;
 }
 
@@ -281,7 +288,7 @@ li:hover {
 textarea,
 .footer>input {
     background-color: rgb(34, 34, 34);
-    color: #ffff;
+   
     padding: 12px 20px;
     border: none;
     box-sizing: border-box;
@@ -297,7 +304,6 @@ textarea {
 
 button {
     border: none;
-    color: white;
     margin-top: 10px;
     padding: 10px;
     text-align: center;
