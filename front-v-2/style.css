@@ -175,7 +175,6 @@ li:hover {
 .picture-frame {
     margin: 10px;
     border-radius: 100%;
-    background-image: url('imgs/1.jpeg');
     min-height: 340px;
     min-width: 340px;
     flex: 2;
@@ -187,8 +186,13 @@ li:hover {
     border-color: rgb(107, 107, 107);
     border-width: 20px;
 }
-
+.picture-frame > img{
+    height: 340px;
+    width: 340px;
+    border-radius: 100%;
+}
 .service-groop {
+    flex-shrink: 1;
     margin-top: 80px;
     margin-bottom: 30px;
 }
@@ -341,4 +345,7 @@ button,
 textarea,
 input:focus {
     outline: none;
+}
+.hide{
+    display: none;
 }
