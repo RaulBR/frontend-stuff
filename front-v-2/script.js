@@ -96,13 +96,13 @@ let popup = (function () {
     }
 })();
 
-let formControl = (function(){
+let formControl = (function () {
     //cashdom 
     let form = document.querySelector('.form');
     let saveButton = form.querySelector('.submit');
-    let nameField = form .querySelector('.name');
-    let emailField = form .querySelector('.email');
-    let subjectField = form .querySelector('.subject');
+    let nameField = form.querySelector('.name');
+    let emailField = form.querySelector('.email');
+    let subjectField = form.querySelector('.subject');
     let messageFiled = form.querySelector('.message');
 
 
@@ -123,11 +123,11 @@ let formControl = (function(){
     });
     //render
     function render(isdisabled) {
-        if(isdisabled){
-          saveButton.removeAttribute("disabled");
-        }else{
-            if(!saveButton.hasAttribute('disabled')){
-                saveButton.setAttribute('disabled',false);
+        if (isdisabled) {
+            saveButton.removeAttribute("disabled");
+        } else {
+            if (!saveButton.hasAttribute('disabled')) {
+                saveButton.setAttribute('disabled', false);
             }
         }
 
@@ -136,14 +136,15 @@ let formControl = (function(){
     function validate() {
         let name = nameField.value.trim();
         let email = emailField.value.trim();
-        let message =messageFiled.value.trim();
+        let message = messageFiled.value.trim();
         if (name !== '' && email !== '' && message !== '') {
-           isEmailValid(email) ? render(true) :'';
-            
+            isEmailValid(email) ? render(true) : '';
+
         } else {
             render(false);
         }
     }
+
     function sendMessage(event) {
         event.preventDefault();
         console.log('submitted');
@@ -151,8 +152,8 @@ let formControl = (function(){
     }
 
     function isEmailValid(email) {
-       let regEx  =/\S+@\S+\.\S+/;
-       return  regEx.test(email) ;
+        let regEx = /\S+@\S+\.\S+/;
+        return regEx.test(email);
     }
 
 })()

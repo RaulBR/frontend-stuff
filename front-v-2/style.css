@@ -62,7 +62,10 @@ h2 {
 }
 
 html,
-body {
+body,
+textarea,
+input {
+    font-family: Verdana, Geneva, sans-serif;
     font-size: 12px;
     padding: 0;
 }
@@ -327,7 +330,8 @@ button {
     display: inline-block;
     background-color: rgb(118, 195, 143);
 }
-button:disabled{
+
+button:disabled {
     color: gray;
 }
 
