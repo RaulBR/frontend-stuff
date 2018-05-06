@@ -28,22 +28,14 @@ let picker = (function () {
                 position = index;
 
             }
-
         });
-
         position = parseInt(position) + parseInt(direction);
-
         render(position);
-
     }
-    // 
-    // 
-
 
 })();
 
 let popup = (function () {
-
     //chashDOM
     let popup = document.querySelector('.photo-viewer');
     let grey = popup.querySelector('.background-blur');
@@ -51,7 +43,6 @@ let popup = (function () {
     let arrows = popup.querySelectorAll('.arrow-view');
     let sorcePictures = document.querySelectorAll('.picture>img');
     const max = [...pictures].length - 1;
-
     //bind
     [...sorcePictures].forEach(picture => {
         picture.addEventListener('click', () => {
@@ -69,7 +60,7 @@ let popup = (function () {
     });
     //render
     function renderPicture(renderNr) {
- 
+
         [...pictures].forEach(picture => {
             picture.classList.add('hide');
         });
@@ -82,7 +73,7 @@ let popup = (function () {
 
     //services
     function movePicture(event) {
-     
+
         let direction = event.target.getAttribute('value');
         let position = 0;
         Array.from(pictures).forEach((pic, index) => {
@@ -103,6 +94,65 @@ let popup = (function () {
     function colsePopup() {
         renderPopup(-1);
     }
+})();
 
+let formControl = (function(){
+    //cashdom 
+    let form = document.querySelector('.form');
+    let saveButton = form.querySelector('.submit');
+    let nameField = form .querySelector('.name');
+    let emailField = form .querySelector('.email');
+    let subjectField = form .querySelector('.subject');
+    let messageFiled = form.querySelector('.message');
+
+
+    nameField.addEventListener('input', () => {
+        validate();
+    });
+    emailField.addEventListener('input', () => {
+        validate();
+    });
+    messageFiled.addEventListener('input', () => {
+        validate();
+    });
+    subjectField.addEventListener('input', () => {
+        validate();
+    });
+    form.addEventListener('submit', () => {
+        sendMessage(event);
+    });
+    //render
+    function render(isdisabled) {
+        if(isdisabled){
+          saveButton.removeAttribute("disabled");
+        }else{
+            if(!saveButton.hasAttribute('disabled')){
+                saveButton.setAttribute('disabled',false);
+            }
+        }
+
+    }
+
+    function validate() {
+        let name = nameField.value.trim();
+        let email = emailField.value.trim();
+        let message =messageFiled.value.trim();
+        if (name !== '' && email !== '' && message !== '') {
+           isEmailValid(email) ? render(true) :'';
+            
+        } else {
+            render(false);
+        }
+    }
+    function sendMessage(event) {
+        event.preventDefault();
+        console.log('submitted');
+
+    }
+
+    function isEmailValid(email) {
+       let regEx  =/\S+@\S+\.\S+/;
+       return  regEx.test(email) ;
+    }
 
 })()

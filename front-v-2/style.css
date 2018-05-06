@@ -24,7 +24,7 @@ footer,
 }
 
 textarea,
-.footer>input,
+input,
 button,
 footer>h3 {
     color: rgb(250, 250, 250);
@@ -302,7 +302,7 @@ li:hover {
 }
 
 textarea,
-.footer>input {
+input {
     background-color: rgb(34, 34, 34);
     padding: 12px 20px;
     border: none;
@@ -326,6 +326,9 @@ button {
     text-decoration: none;
     display: inline-block;
     background-color: rgb(118, 195, 143);
+}
+button:disabled{
+    color: gray;
 }
 
 button,
