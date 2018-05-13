@@ -157,3 +157,32 @@ let formControl = (function () {
     }
 
 })()
+
+let sideNav = (function(){
+    // cashDom
+    let header = document.querySelector('header');
+    let nav = header.querySelector('nav');
+    let meniu = nav.querySelector('.meniu');
+    let button = header.querySelector('.meniu-button>i');
+    //bind
+    button.addEventListener('click',showMeniu);
+
+
+
+    function showMeniu(event){
+      let  inButton = event.target;
+      let attribute = inButton.getAttribute('value');
+           if( attribute ==='close'){
+            meniu.style.display ="block";
+            nav.classList.add('center-x');
+             inButton.setAttribute('value','open');
+            
+
+           }else if(attribute ==='open'){
+            meniu.style.display ="none";
+            nav.classList.remove('center-x');
+            inButton.setAttribute('value','close');
+           }
+    }
+
+})()
