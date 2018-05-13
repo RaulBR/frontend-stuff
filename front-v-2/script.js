@@ -158,29 +158,24 @@ let formControl = (function () {
 
 })()
 
-let sideNav = (function(){
+let sideNav = (function () {
     // cashDom
     let header = document.querySelector('header');
     let nav = header.querySelector('nav');
     let meniu = nav.querySelector('.meniu');
     let button = header.querySelector('.meniu-button>i');
     //bind
-    button.addEventListener('click',showMeniu);
+    button.addEventListener('click', showMeniu);
 
-
-
-    function showMeniu(event){
-      let  inButton = event.target;
-      let attribute = inButton.getAttribute('value');
-           if( attribute ==='close'){
+    function showMeniu(event) {
+        let inButton = event.target;
+        let attribute = inButton.getAttribute('value');
+        if (attribute === 'close') {
             meniu.classList.add('mob-meniu');
-            inButton.setAttribute('value','open');
-            
-
-           }else if(attribute ==='open'){
+            inButton.setAttribute('value', 'open');
+        } else if (attribute === 'open') {
             meniu.classList.remove('mob-meniu');
-            inButton.setAttribute('value','close');
-           }
+            inButton.setAttribute('value', 'close');
+        }
     }
-
 })()
