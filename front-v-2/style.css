@@ -415,6 +415,24 @@ input:focus {
 
 .hide {
     display: none;
+ }
+
+@media only screen and (max-width: 501px) {
+       .logo{
+        width: 70%;
+    }
+    .nav{
+        position: relative;
+        left: none;
+        transform: translate(0, 0);
+    }
+    .mob-meniu{
+        display: flex;
+        justify-content: center;
+    }
+        
+      
+  
 }
 
 @media only screen and (max-width: 500px) {
@@ -422,13 +440,23 @@ input:focus {
         min-height: 70px;
         max-height: 300px;
     }
+    .nav{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+ 
     .logo{
         width: 70%;
     }
-    .meniu {
-        display: none;
-
+    .mob-meniu {
+         display: none;
     }
+    .mob-column{
+        flex-flow: column;
+        justify-content: center;
+    }
+
     .meniu>*{
         font-size: 1.2rem;
     }

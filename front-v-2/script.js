@@ -173,14 +173,12 @@ let sideNav = (function(){
       let  inButton = event.target;
       let attribute = inButton.getAttribute('value');
            if( attribute ==='close'){
-            meniu.style.display ="block";
-            nav.classList.add('center-x');
-             inButton.setAttribute('value','open');
+            meniu.classList.add('mob-meniu');
+            inButton.setAttribute('value','open');
             
 
            }else if(attribute ==='open'){
-            meniu.style.display ="none";
-            nav.classList.remove('center-x');
+            meniu.classList.remove('mob-meniu');
             inButton.setAttribute('value','close');
            }
     }
