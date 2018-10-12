@@ -36,6 +36,9 @@ section{
     flex-flow: row;
     align-items: center;
 }
+.wrap{
+      flex-wrap:wrap;
+}
 
 .spred{
     justify-content: space-between;
@@ -44,19 +47,26 @@ section{
 .container{
     position: relative;
     justify-content: space-between;
-    width: 1180px;
-    min-height: 100px;
+    flex-grow:1;
+    max-width: 1180px;
+    min-width:370px;
+    min-height: 100px; 
 }
 
 .options{
-    width: 50%;
+    flex-grow: 1;
+    max-width: 550px;
+    min-width: 370px;
 }
-
+.options>p{
+     min-width: 100px;
+}
 .inner-container{
     width: 90%;
     justify-content: space-between;
 }
 .title{
+    min-width: 370px;
     min-height: 60px;
     background-image: linear-gradient(to left,  #5453BC , #7D52B9);
     overflow: hidden;
@@ -64,7 +74,9 @@ section{
 }
 
 .checklist{
-    width: 780px;
+    flex-grow:1;
+    max-width: 780px;
+    min-width:370px;
     min-height: 400px;
 }
 .title-container{
@@ -77,15 +89,16 @@ section{
     
 }
 .updates{
-    width: 370px;
+    max-width: 780px;
+    min-width: 370px;
     min-height: 400px;
 }
 .fas,
 .far{
-        left: 30px;
-        color: #ffff;
-        opacity: 0.5;
-        font-size: 70px;       
+    left: 30px;
+    color: #ffff;
+    opacity: 0.5;
+    font-size: 70px;       
   
 }
 .fa-clock,
@@ -107,7 +120,7 @@ section{
     font-size: 20px;
 }
 .option-drop{
-    width: 15%;
+    min-width: 130px;
 }
 
 .squere{
