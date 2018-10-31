@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Open Sans;
+  font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+nav,
+header,
+section,
+footer,
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+.main-header .user-setings {
+  background: red;
+  height: 30px;
+  width: 140px;
+}
+
+.main-nav__items {
+  list-style: none;
+  display: flex;
+}
+
+.main-nav__item {
+  list-style: none;
+  margin: 0 1rem;
+}
+.main-nav__item a {
+  text-decoration: none;
+  color: #3f3e3e;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.hr-nav {
+  background: linear-gradient(to left, #5453BC, #7D52B9);
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+.hr-nav p {
+  font-size: 2.5rem;
+  color: white;
+}
+.hr-nav button {
+  width: 200px;
+  height: 35px;
+  border-radius: 40px;
+}
+
+button {
+  border: 0;
+  background: white;
+}
+
+button:focus {
+  outline: none;
+}
+
+/*# sourceMappingURL=style.css.map */
