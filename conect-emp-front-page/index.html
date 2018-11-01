@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
     <title>Conect</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <header class="main-header">
+    <header class="main-header wrap-container">
         <div>
             <img src="images/uhost-icon.png" alt="Logo">
         </div>
@@ -34,17 +38,72 @@
                 </li>
             </ul>
         </nav>
-        <button class="user-setings">
-            <p>1</p>
+        <div class="user-setings">
+            <div class="user-setings__notification">
+                <p>1</p>
+            </div>
+            <div class="user-setings__button">
                 <p>User</p>
-        </button>
+                <i class="fas fa-caret-down"></i>
+            </div>
+
+
+        </div>
     </header>
     <nav class="hr-nav">
-        <p>Welcome,Heater</p>
-        <button></button>
+        <div class="wrap-container">
+            <h2>Welcome,Heater</h2>
+            <button class="hr-nav__button">
+                <i class="far fa-question-circle"></i>
+                <p>Question?
+                    <b>Contact HR</b>
+                </p>
+            </button>
+        </div>
     </nav>
     <main>
-        <section>
+        <section class="section-elements wrap-container">
+            <div class="section-element">
+                <header class="section-element__header">
+                    <h3 class="section-element__header--title">My Checklist</h3>
+                    <i class="far fa-clipboard section-element__header--icon rotate"></i>
+                </header>
+                <div class="section-element__notification">
+                    <div class="section-element__notification--message">
+                        <i class="fas fa-exclamation-circle section-icon"> </i>
+                        <p class = "section-element__notification--title">
+                        Please complete all tasks in order.</p>
+                    </div>    
+                    <p>15 Tasks</p>
+                </div>
+                <table class="checklist-table">
+                        <thead class="checklist-table__head">
+                          <tr>
+                            <th class="col first">Task</th>
+                            <th class="col">Due Date</th>
+                            <th class="col">Where?</th>
+                          
+                          </tr>
+                        </thead>
+                        <tbody class="checklist-table__body">
+                          <tr>
+                            <th class="col first">[ ]  Setup direct deposit</th>
+                            <td class="col">Overdue</td>
+                            <td class="col"><Button>ONLINE</Button></td>
+                            
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+
+            </div>
+            <div class="section-element">
+                <header class="section-element__header">
+                    <h3 class="section-element__header--title ">My Updates</h3>
+                    <i class="fas fa-user-check section-element__header--icon"></i>
+                </header>
+                ddd
+            </div>
 
         </section>
     </main>

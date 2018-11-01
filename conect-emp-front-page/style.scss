@@ -1,13 +1,15 @@
 $header-color:linear-gradient(to left, #5453BC, #7D52B9);
 $nav-text-color:rgb(63, 62, 62);
 $prime-text-color:white;
+$notification-color:rgb(39, 168, 243);
+$icon-color:#5453BC;
 $center-padding:200px;
 * {
   box-sizing: border-box;
 }
 body {
-    font-family: Open Sans;
-    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    color: #6b7279;
 }
 
 h1,
@@ -24,28 +26,65 @@ html {
   margin: 0;
   padding: 0;
 }
-
-.main-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height:100px;
-    padding:{
-        left:$center-padding;
-        right:$center-padding;
-    }
-    .user-setings{
-        background:red;
-        height:30px;
-        width:140px;
-    }
- 
- 
-    
+h2,
+h3{
+    color:$prime-text-color;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.5rem;
 }
 
+button{
+    border: 0;
+    background: $prime-text-color;
+  }
+  button:focus{
+    outline: none;
+ }
+ .wrap-container{
+    position:relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: 1400px;
+    height:100%;
 
+}
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:100px;
+    .user-setings{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        height:30px;
+        min-width:110px;
+        font-weight: bold;
+        font-size: 1rem;
+       .user-setings__notification {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            width:  25px;
+            color:$prime-text-color;
+            background: $notification-color;
+        
+        }
 
+    }
+  
+}
+.user-setings__button{
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+ 
+}
 .main-nav__items{
     list-style: none;
     display: flex;
@@ -59,6 +98,7 @@ html {
         color:$nav-text-color;
         font-size: 1.2rem;
         cursor: pointer;
+        font-weight: bold;
   
     }
   }
@@ -66,29 +106,103 @@ html {
       background:$header-color;
       width: 100%;
       height: 100px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding:{
-          left:$center-padding;
-          right:$center-padding;
-      }
-     p{
-         font-size:2.5rem;
-         color:$prime-text-color;
-     }
-     button{
-         width:200px;
-         height:35px;
-         border-radius: 40px;
-     }
   
+     .wrap-container{
+         display: flex;
+         justify-content: space-between;
+         align-items: center
+     }
+     .hr-nav__button{
+         display: flex;
+         justify-content: center;
+        align-items: center;
+         width:230px;
+         height:40px;
+         border-radius: 40px;
+     
+         i{
+             margin: 0 10px;
+             color:$notification-color;
+             font-size: 1.3rem;
+         }
+         p{
+             margin: 0 10px;
+         }
+     }
   }
-  button{
-    border: 0;
-    background: $prime-text-color;
-  }
-  button:focus{
-    outline: none;
- }
+.section-elements{
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+  .section-element{
+    padding: 40px 0;
+    max-width:45%;
+    min-width: 350px ;
+    flex-grow: 1;
+    .section-element__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:20px;
+        background: $header-color;
+        height: 60px;
+        width:100%;  
+        .section-element__header--icon{
+            color:$prime-text-color;
+            font-size: 3.6rem;
+            opacity: 0.5;
+        }
+
+    } 
+}
+.section-element__notification{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 20px;
+    height:60px;
+    .section-element__notification--message{
+        display: flex;
+        align-items: center;
+
+    }
+    p{
+        font-weight: bold;
+    }
+
+}
+.checklist-table{
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+.checklist-table__head{
+    width: 100%;
+   
+    background: #d9dcdf;
+    font-weight: bold;
+    color: #2b2c2e
+}
+.col{
+    height: 50px;
+    text-align: center;   
+ 
+}
+.first{
+    text-align: left; 
+    padding: 0 40px;  
+}
+.extra{
+    width: 500px;
+    
+}
+.section-icon{
+    padding:0 10px;
+    color: $icon-color;
+    font-size: 2rem;
+}
+.rotate{
+    transform: rotate(20deg);
+}
 
