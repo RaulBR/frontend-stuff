@@ -46,9 +46,13 @@ button:focus {
 
 .wrap-container {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 320px;
+  padding: 0 10px;
   left: 50%;
   transform: translate(-50%, 0);
-  max-width: 1400px;
+  max-width: 1200px;
   height: 100%;
 }
 
@@ -57,6 +61,7 @@ button:focus {
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  min-width: 320px;
 }
 .main-header .user-setings {
   display: flex;
@@ -83,9 +88,25 @@ button:focus {
   width: 60px;
 }
 
+.meniu {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .meniu {
+    display: block;
+    padding: 20px;
+    font-size: 2rem;
+  }
+}
+
 .main-nav__items {
   list-style: none;
   display: flex;
+}
+@media only screen and (max-width: 800px) {
+  .main-nav__items {
+    display: none;
+  }
 }
 
 .main-nav__item {
@@ -102,19 +123,19 @@ button:focus {
 
 .hr-nav {
   background: linear-gradient(to left, #5453BC, #7D52B9);
-  width: 100%;
+  min-width: 320px;
   height: 100px;
 }
 .hr-nav .wrap-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
 }
 .hr-nav .hr-nav__button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 230px;
   height: 40px;
   border-radius: 40px;
 }
@@ -126,18 +147,32 @@ button:focus {
 .hr-nav .hr-nav__button p {
   margin: 0 10px;
 }
+@media only screen and (max-width: 800px) {
+  .hr-nav .hr-nav__button p {
+    display: none;
+  }
+}
 
 .section-elements {
   display: flex;
   justify-content: space-between;
   align-items: top;
+  flex-flow: wrap;
+  min-width: 320px;
+}
+@media only screen and (max-width: 800px) {
+  .section-elements {
+    justify-content: center;
+    align-content: center;
+  }
 }
 
 .section-element {
-  padding: 40px 0;
   max-width: 45%;
-  min-width: 350px;
+  min-width: 320px;
   flex-grow: 1;
+  margin: 40px 20px;
+  box-shadow: 1px 1px 1px 1px #F7F7F8;
 }
 .section-element .section-element__header {
   display: flex;
@@ -158,8 +193,8 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
   height: 60px;
+  padding: 0 20px;
 }
 .section-element__notification .section-element__notification--message {
   display: flex;
@@ -167,29 +202,55 @@ button:focus {
 }
 .section-element__notification p {
   font-weight: bold;
+  margin: 0 10px;
 }
 
-.checklist-table {
+.section-table {
   width: 100%;
   border: none;
   border-collapse: collapse;
+  padding: 20px;
 }
 
-.checklist-table__head {
+.section-table__head {
   width: 100%;
-  background: #d9dcdf;
+  padding: 0 20px;
+  background: #F7F7F8;
   font-weight: bold;
   color: #2b2c2e;
 }
 
 .col {
-  height: 50px;
-  text-align: center;
+  padding: 0 20px;
+  height: 65px;
+  text-align: right;
+  border-bottom: 1px solid #F7F7F8;
 }
 
 .first {
   text-align: left;
-  padding: 0 40px;
+}
+
+.last {
+  text-align: left;
+}
+
+.check-list {
+  min-width: 320px;
+  max-width: 1200px;
+  flex-basis: auto;
+  /* default value */
+  flex-grow: 1;
+}
+
+.updates {
+  min-width: 320px;
+  max-width: 400px;
+}
+@media only screen and (max-width: 800px) {
+  .updates {
+    max-width: 1200px;
+  }
 }
 
 .extra {
@@ -197,9 +258,8 @@ button:focus {
 }
 
 .section-icon {
-  padding: 0 10px;
   color: #5453BC;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .rotate {

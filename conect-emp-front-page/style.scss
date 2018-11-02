@@ -2,6 +2,8 @@ $header-color:linear-gradient(to left, #5453BC, #7D52B9);
 $nav-text-color:rgb(63, 62, 62);
 $prime-text-color:white;
 $notification-color:rgb(39, 168, 243);
+$min-container-width:320px;
+$table-header-color:#F7F7F8;
 $icon-color:#5453BC;
 $center-padding:200px;
 * {
@@ -46,17 +48,23 @@ button{
  }
  .wrap-container{
     position:relative;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: $min-container-width;
+    padding: 0 10px;
     left: 50%;
     transform: translate(-50%, 0);
-    max-width: 1400px;
+    max-width: 1200px;
     height:100%;
 
 }
 .main-header{
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     height:100px;
+    min-width: $min-container-width;
     .user-setings{
         display:flex;
         align-items: center;
@@ -85,9 +93,20 @@ button{
     width: 60px;
  
 }
+.meniu{
+    display: none;
+    @media only screen and (max-width: 800px) {
+        display: block;
+        padding:20px;
+        font-size: 2rem;
+        }
+}
 .main-nav__items{
     list-style: none;
     display: flex;
+    @media only screen and (max-width: 800px) {
+       display: none;
+       }
 
 }
 .main-nav__item {
@@ -104,19 +123,21 @@ button{
   }
   .hr-nav{
       background:$header-color;
-      width: 100%;
+    //   max-width: 100%;
+      min-width: $min-container-width;
       height: 100px;
   
      .wrap-container{
          display: flex;
          justify-content: space-between;
-         align-items: center
+         align-items: center;
+         align-content:center;
+      
      }
      .hr-nav__button{
          display: flex;
          justify-content: center;
         align-items: center;
-         width:230px;
          height:40px;
          border-radius: 40px;
      
@@ -127,19 +148,31 @@ button{
          }
          p{
              margin: 0 10px;
+             @media only screen and (max-width: 800px) {  
+                display: none;  
+            }
          }
+       
      }
   }
 .section-elements{
     display: flex;
-    justify-content: space-between;
+   justify-content: space-between;
     align-items: top;
+    flex-flow: wrap;
+    min-width: $min-container-width;
+    @media only screen and (max-width: 800px) {
+        justify-content: center;
+        align-content: center;
+       }
 }
   .section-element{
-    padding: 40px 0;
     max-width:45%;
-    min-width: 350px ;
+    min-width: $min-container-width;
     flex-grow: 1;
+    margin: 40px 20px;
+    box-shadow: 1px 1px 1px 1px $table-header-color;
+    
     .section-element__header{
         display: flex;
         justify-content: space-between;
@@ -160,8 +193,8 @@ button{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:0 20px;
     height:60px;
+    padding: 0 20px; 
     .section-element__notification--message{
         display: flex;
         align-items: center;
@@ -169,38 +202,60 @@ button{
     }
     p{
         font-weight: bold;
+        margin: 0 10px;
     }
 
 }
-.checklist-table{
+.section-table{
     width: 100%;
     border: none;
     border-collapse: collapse;
+    padding: 20px;
+
 }
-.checklist-table__head{
+.section-table__head{
     width: 100%;
-   
-    background: #d9dcdf;
+    padding: 0 20px; 
+    background: $table-header-color;
     font-weight: bold;
     color: #2b2c2e
+ 
 }
 .col{
-    height: 50px;
-    text-align: center;   
+    padding: 0 20px;
+    height: 65px;
+    text-align: right;  
+    border-bottom: 1px solid $table-header-color;
  
 }
 .first{
     text-align: left; 
-    padding: 0 40px;  
+     
+}  
+.last{
+    text-align: left; 
+}
+.check-list{
+    min-width: $min-container-width;
+    max-width: 1200px;
+    flex-basis: auto; /* default value */
+    flex-grow: 1;
+}
+.updates{
+   min-width:$min-container-width;
+   max-width: 400px;
+   @media only screen and (max-width: 800px) {
+    max-width: 1200px;
+   }
+  
 }
 .extra{
     width: 500px;
     
 }
 .section-icon{
-    padding:0 10px;
     color: $icon-color;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .rotate{
     transform: rotate(20deg);

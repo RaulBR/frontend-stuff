@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
     <header class="main-header wrap-container">
+            <i class="fas fa-bars meniu"></i>
         <div>
             <img src="images/uhost-icon.png" alt="Logo">
         </div>
@@ -63,7 +63,7 @@
     </nav>
     <main>
         <section class="section-elements wrap-container">
-            <div class="section-element">
+            <div class="section-element check-list">
                 <header class="section-element__header">
                     <h3 class="section-element__header--title">My Checklist</h3>
                     <i class="far fa-clipboard section-element__header--icon rotate"></i>
@@ -71,38 +71,72 @@
                 <div class="section-element__notification">
                     <div class="section-element__notification--message">
                         <i class="fas fa-exclamation-circle section-icon"> </i>
-                        <p class = "section-element__notification--title">
-                        Please complete all tasks in order.</p>
-                    </div>    
+                        <p class="section-element__notification--title">
+                            Please complete all tasks in order.</p>
+                    </div>
                     <p>15 Tasks</p>
                 </div>
-                <table class="checklist-table">
-                        <thead class="checklist-table__head">
-                          <tr>
-                            <th class="col first">Task</th>
-                            <th class="col">Due Date</th>
-                            <th class="col">Where?</th>
-                          
-                          </tr>
+                <div class="table-container">
+                    <table class="section-table">
+                        <thead class="section-table__head">
+                            <tr>
+                                <th class="col first">Task</th>
+                                <th class="col">Due Date</th>
+                                <th class="col">Where?</th>
+                            </tr>
                         </thead>
-                        <tbody class="checklist-table__body">
-                          <tr>
-                            <th class="col first">[ ]  Setup direct deposit</th>
-                            <td class="col">Overdue</td>
-                            <td class="col"><Button>ONLINE</Button></td>
-                            
-                          </tr>
-                        
-                        </tbody>
-                      </table>
+                        <tbody class="section-table__body">
+                            <tr>
+                                <th class="col first">[ ] Setup direct deposit</th>
+                                <td class="col">Overdue</td>
+                                <td class="col">
+                                    <Button>ONLINE</Button>
+                                </td>
 
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="section-element">
+            <div class="section-element updates">
                 <header class="section-element__header">
                     <h3 class="section-element__header--title ">My Updates</h3>
                     <i class="fas fa-user-check section-element__header--icon"></i>
                 </header>
-                ddd
+                <div class="table-container">
+                    <table class="section-table">
+                        <thead class="section-table__head">
+                            <tr>
+                                <th class="col first">Pending Aproval </th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="section-table__body">
+                            <tr>
+                                <th class="col first">[ ] Setup direct deposit</th>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <table class="section-table">
+                        <thead class="section-table__head">
+                            <tr>
+                                <th class="col first">Approved</th>
+                            </tr>
+                        </thead>
+                        <tbody class="section-table__body">
+                            <tr>
+                                <th class="col first">
+                                    <i class="fas fa-user-check section-icon"></i>
+                                    Tax Withholding
+                                    <p>Updated June 12,2018</p>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </section>
