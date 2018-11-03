@@ -91,7 +91,7 @@ button:focus {
 .meniu {
   display: none;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 833px) {
   .meniu {
     display: block;
     padding: 20px;
@@ -103,7 +103,7 @@ button:focus {
   list-style: none;
   display: flex;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 833px) {
   .main-nav__items {
     display: none;
   }
@@ -147,7 +147,7 @@ button:focus {
 .hr-nav .hr-nav__button p {
   margin: 0 10px;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 833px) {
   .hr-nav .hr-nav__button p {
     display: none;
   }
@@ -160,7 +160,7 @@ button:focus {
   flex-flow: wrap;
   min-width: 320px;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 833px) {
   .section-elements {
     justify-content: center;
     align-content: center;
@@ -172,7 +172,12 @@ button:focus {
   min-width: 320px;
   flex-grow: 1;
   margin: 40px 20px;
-  box-shadow: 1px 1px 1px 1px #F7F7F8;
+  box-shadow: 1px 1px 1px 1px #dadadb;
+}
+@media only screen and (max-width: 750px) {
+  .section-element {
+    margin: 20px 0;
+  }
 }
 .section-element .section-element__header {
   display: flex;
@@ -247,7 +252,7 @@ button:focus {
   min-width: 320px;
   max-width: 400px;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 833px) {
   .updates {
     max-width: 1200px;
   }

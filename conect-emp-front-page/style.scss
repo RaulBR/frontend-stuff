@@ -4,6 +4,7 @@ $prime-text-color:white;
 $notification-color:rgb(39, 168, 243);
 $min-container-width:320px;
 $table-header-color:#F7F7F8;
+$table-shadow-color:rgb(218, 218, 219);
 $icon-color:#5453BC;
 $center-padding:200px;
 * {
@@ -95,7 +96,7 @@ button{
 }
 .meniu{
     display: none;
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 833px) {
         display: block;
         padding:20px;
         font-size: 2rem;
@@ -104,7 +105,7 @@ button{
 .main-nav__items{
     list-style: none;
     display: flex;
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 833px) {
        display: none;
        }
 
@@ -148,7 +149,7 @@ button{
          }
          p{
              margin: 0 10px;
-             @media only screen and (max-width: 800px) {  
+             @media only screen and (max-width: 833px) {  
                 display: none;  
             }
          }
@@ -161,7 +162,7 @@ button{
     align-items: top;
     flex-flow: wrap;
     min-width: $min-container-width;
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 833px) {
         justify-content: center;
         align-content: center;
        }
@@ -171,8 +172,10 @@ button{
     min-width: $min-container-width;
     flex-grow: 1;
     margin: 40px 20px;
-    box-shadow: 1px 1px 1px 1px $table-header-color;
-    
+    box-shadow: 1px 1px 1px 1px $table-shadow-color;
+    @media only screen and (max-width: 750px) {
+        margin: 20px 0;
+       }
     .section-element__header{
         display: flex;
         justify-content: space-between;
@@ -244,7 +247,7 @@ button{
 .updates{
    min-width:$min-container-width;
    max-width: 400px;
-   @media only screen and (max-width: 800px) {
+   @media only screen and (max-width: 833px) {
     max-width: 1200px;
    }
   
