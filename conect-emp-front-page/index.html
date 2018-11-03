@@ -14,7 +14,7 @@
 
 <body>
     <header class="main-header wrap-container">
-            <i class="fas fa-bars meniu"></i>
+        <i class="fas fa-bars meniu"></i>
         <div>
             <img src="images/uhost-icon.png" alt="Logo">
         </div>
@@ -77,26 +77,30 @@
                     <p>15 Tasks</p>
                 </div>
                 <div class="table-container">
-                    <table class="section-table">
-                        <thead class="section-table__head">
-                            <tr>
-                                <th class="col first">Task</th>
-                                <th class="col">Due Date</th>
-                                <th class="col">Where?</th>
-                            </tr>
-                        </thead>
-                        <tbody class="section-table__body">
-                            <tr>
-                                <th class="col first">[ ] Setup direct deposit</th>
-                                <td class="col">Overdue</td>
-                                <td class="col">
-                                    <Button>ONLINE</Button>
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-                    </table>
+                    <div class="section-table">
+                        <div class="section-table__head">
+                            <div class="row">
+                                <div class="col first">Task</div>
+                                <div class="col">Due Date</div>
+                                <div class="col">Where?</div>
+                            </div>
+                        </div>
+                        <div class="section-table__body">
+                            <div class="row">
+                                <div class="col first"><input type="checkbox" class="section-checkbox">Setup direct
+                                    deposit</div>
+                                <div class="col">Overdue</div>
+                                <div class="col"> <Button class="section-btn">ONLINE</Button> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col first">
+                                    <input type="checkbox" class="section-checkbox"> Setup direct deposit
+                                </div>
+                                <div class="col">Overdue</div>
+                                <div class="col"> <Button class="section-btn">ONLINE</Button> </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="section-element updates">
@@ -105,40 +109,47 @@
                     <i class="fas fa-user-check section-element__header--icon"></i>
                 </header>
                 <div class="table-container">
-                    <table class="section-table">
-                        <thead class="section-table__head">
-                            <tr>
-                                <th class="col first">Pending Aproval </th>
-
-                            </tr>
-                        </thead>
-                        <tbody class="section-table__body">
-                            <tr>
-                                <th class="col first">[ ] Setup direct deposit</th>
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <table class="section-table">
-                        <thead class="section-table__head">
-                            <tr>
-                                <th class="col first">Approved</th>
-                            </tr>
-                        </thead>
-                        <tbody class="section-table__body">
-                            <tr>
-                                <th class="col first">
-                                    <i class="fas fa-user-check section-icon"></i>
-                                    Tax Withholding
+                    <div class="section-table">
+                        <div class="section-table__head">
+                            <div class="row">
+                                <div class="col first">Pending Aproval </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col first">
+                                <div class="col-icon">
+                                    <i class="far fa-clock section-icon"></i>
+                                </div>
+                                <div class="col col-twoline">
+                                    <p>Tax Withholding</p>
                                     <p>Updated June 12,2018</p>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="section-table">
+                    <div class="section-table__head">
+                        <div class="row">
+                            <div class="col first">Approved</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col first">
+                            <div class="col-icon">
+                                <i class="fas fa-user-check section-icon"></i>
+                            </div>
+                            <div class="col col-twoline">
+                                <p>Tax Withholding</p>
+                                <p>Updated June 12,2018</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-
+            </div>
         </section>
     </main>
 </body>

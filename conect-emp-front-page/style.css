@@ -214,30 +214,51 @@ button:focus {
   width: 100%;
   border: none;
   border-collapse: collapse;
-  padding: 20px;
 }
 
 .section-table__head {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 5px;
   background: #F7F7F8;
+  display: flex;
   font-weight: bold;
   color: #2b2c2e;
 }
 
-.col {
-  padding: 0 20px;
+.section-table__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-flow: column;
+}
+
+.row {
+  width: 100%;
   height: 65px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #F7F7F8;
 }
 
-.first {
-  text-align: left;
+.col {
+  padding: 0 20px;
+}
+.col i {
+  font-size: 1.3rem;
 }
 
-.last {
-  text-align: left;
+.first {
+  flex-grow: 3;
+  display: flex;
+  justify-content: left;
+}
+
+.col-twoline {
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .check-list {
@@ -256,6 +277,20 @@ button:focus {
   .updates {
     max-width: 1200px;
   }
+}
+
+.section-btn {
+  height: 30px;
+  width: 70px;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.section-checkbox {
+  background: #F7F7F8;
 }
 
 .extra {
