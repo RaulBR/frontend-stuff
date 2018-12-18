@@ -5,9 +5,9 @@ import { Request, Response } from 'express';
 const Contact = mongoose.model('Contact', ContactSchema);
 export class ContactService{
 
-public addNewContact (req: Request, res: Response) {                
+public addNewContact (req: Request, res: Response) {               
         let newContact = new Contact(req.body);
-    
+        console.log(req.body); 
         newContact.save((err, contact) => {
             if(err){
                 res.send(err);
@@ -15,7 +15,7 @@ public addNewContact (req: Request, res: Response) {
             res.json(contact);
         });
     }
-    public getContacts (req: Request, res: Response) {           
+    public getContacts (req: Request, res: Response) {         
         Contact.find({}, (err, contact) => {
             if(err){
                 res.send(err);

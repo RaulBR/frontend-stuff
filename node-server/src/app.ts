@@ -3,7 +3,7 @@ import * as bodyParser from "body-parser";
 import { Routes } from "./routes/routes";
 import * as mongoose from "mongoose";
 export class App {
-    public mongoUrl: string = 'mongodb://localhost/CRMdb';  
+    public mongoUrl: string = 'mongodb://localhost:27017/MyDb'; // 'mongodb://localhost/MyDb';  //;  
     public app: express.Application;
     public routePrv: Routes = new Routes();
     constructor() {
@@ -21,7 +21,7 @@ export class App {
     }
     private mongoSetup(): void{
         mongoose.Promise = global.Promise;
-        mongoose.connect(this.mongoUrl);    
+        mongoose.connect(this.mongoUrl,{ useNewUrlParser: true });    
     }
 }
 
