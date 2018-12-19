@@ -2,8 +2,9 @@ import { Request, Response } from "express";
 import { ContactService } from "../service/contact-service";
 import { UserService } from "../service/user.service"
 export class Routes {
-    constructor(private contactservice: ContactService,
-        private userService: UserService) { }
+    private contactservice = new ContactService();
+    private userService = new UserService();
+ 
     // public contactservice: ContactService = new ContactService();
     public routes(app): void {
 
