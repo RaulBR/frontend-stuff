@@ -1,5 +1,7 @@
 import * as mongoose from 'mongoose';
 import * as validator from 'validator'
+import * as jwt from 'jsonwebtoken';
+import * as _ from 'lodash'
 const Schema = mongoose.Schema;
 export const UserSchema = new Schema({
  
@@ -17,7 +19,7 @@ export const UserSchema = new Schema({
     passwoard: {
         type: String,
         requierd:true,
-        minlength:6            
+        minlength:5            
     },
     tokens:[{
         access:{
@@ -34,3 +36,18 @@ export const UserSchema = new Schema({
         default: Date.now
     }
 });
+UserSchema.methods.toJSON = function (){
+    let user =this;
+    let userObject = user.toObject();
+    return _.pick(userObject,'_id','email');
+
+}
+UserSchema.methods.generateAuthToken = function () {
+    let user = this;
+    let access = 'auth'
+    let token = jwt.sign({_id:user._id.toHexString(),access},'abc123').toString();
+    user.tokens = user.tokens.concat({access,token});
+    return user.save().then(()=>{
+        return token;
+    });
+}

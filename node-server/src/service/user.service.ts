@@ -1,50 +1,64 @@
 import * as mongoose from 'mongoose';
-import { ContactSchema } from '../models/employee-schema';
+import * as _ from 'lodash'
+import { UserSchema } from '../models/user-schema';
 import { Request, Response } from 'express';
-const User = mongoose.model('Users', ContactSchema);
+const User = mongoose.model('Users', UserSchema);
 
 export class UserService {
 
-    public addUser (req: Request, res: Response) {               
-        let newUser = new User(req.body);
-        console.log(req.body); 
-        newUser.save((err, contact) => {
+    public addUser (req: Request, res: Response) {  
+        let body = _.pick(req.body,['email','passwoard']);             
+        let user = new User(body);
+        //modelmethod
+        //User.findByToken
+        //instance method
+       // user.generateAuthToken
+       user.save().then(()=>{
+           return user.generateAuthToken();
+       }).then((token)=>{
+           res.header('x-auth',token).send(user);
+
+       }).catch((e)=>{
+           res.status(400).sendStatus(e)
+       })
+        // user.save((err, user) => {
+        //     return user.generateAuthToken();
+        //     if (err) {
+        //         res.status(400).send(err);
+        //     }
+        //     res.json(user);
+        // });
+    }
+    public getUser (req: Request, res: Response) {         
+        User.find({}, (err, user) => {
             if (err) {
                 res.send(err);
             }
-            res.json(contact);
+            res.json(user);
         });
     }
-    public getContacts (req: Request, res: Response) {         
-        User.find({}, (err, contact) => {
+    public getUserByID(req: Request, res: Response) {
+        User.findById(req.params.userId, (err, user) => {
             if (err) {
                 res.send(err);
             }
-            res.json(contact);
+            res.json(user);
         });
     }
-    public getContactByID(req: Request, res: Response) {
-        User.findById(req.params.contactId, (err, contact) => {
+    public updateUser(req: Request, res: Response) {
+        User.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true }, (err, user) => {
             if (err) {
                 res.send(err);
             }
-            res.json(contact);
+            res.json(user);
         });
     }
-    public updateContact(req: Request, res: Response) {
-        User.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true }, (err, contact) => {
+    public deleteUser(req: Request, res: Response) {
+        User.remove({ _id: req.params.contactId }, (err, user) => {
             if (err) {
                 res.send(err);
             }
-            res.json(contact);
-        });
-    }
-    public deleteContact(req: Request, res: Response) {
-        User.remove({ _id: req.params.contactId }, (err, contact) => {
-            if (err) {
-                res.send(err);
-            }
-            res.json({ message: 'Successfully deleted contact!' });
+            res.json({ message: 'Successfully deleted user!' });
         });
     }
     public login(req: Request, res: Response){

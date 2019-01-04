@@ -6,7 +6,6 @@ export class ContactService {
 
 public addNewContact (req: Request, res: Response) {               
         let newContact = new Contact(req.body);
-        console.log(req.body); 
         newContact.save((err, contact) => {
             if (err) {
                 res.send(err);

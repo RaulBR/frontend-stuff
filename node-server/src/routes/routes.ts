@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ContactService } from "../service/contact-service";
+import { ContactService } from "../service/contact.service";
 import { UserService } from "../service/user.service"
 export class Routes {
     private contactservice = new ContactService();
@@ -30,8 +30,9 @@ export class Routes {
             .delete(this.contactservice.deleteContact);
 
         // USER
-        app.route('/login')
-            .post(this.userService.login);
+        app.route('/user')
+            .post(this.userService.addUser)
+            .get(this.userService.getUser);
 
     }
 }
