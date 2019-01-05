@@ -3,10 +3,9 @@ import { EmployeeController } from "../controllers/employee.controller";
 import { UserController } from "../controllers/user.controller";
 import  { AuthService } from "../service/auth.service"
 export class Routes {
-    private contactservice = new EmployeeController();
+    private employeeservice = new EmployeeController();
     private userService = new UserController();
     private auth = new AuthService();
-    // public contactservice: ContactService = new ContactService();
     public routes(app): void {
 
         app.route('/')
@@ -15,20 +14,20 @@ export class Routes {
                     message: 'GET request successfulll!!!!'
                 });
             });
-        // Contact 
-        app.route('/contact')
+        // Employee 
+        app.route('/employee')
             // GET endpoint 
-            .get(this.auth.authenticate,this.contactservice.getEmployees)
+            .get(this.auth.authenticate,this.employeeservice.getEmployees)
             // POST endpoint
-            .post(this.auth.authenticate,this.contactservice.addNewEmployee);
-        // Contact detail
-        app.route('/contact/:employeeId')
-            // get specific contact
-            .get(this.contactservice.getEmployeeByID)
-            // add specific contact
-            .put(this.contactservice.updateEmployee)
-            // delete specific contact
-            .delete(this.contactservice.deleteEmployee);
+            .post(this.auth.authenticate,this.employeeservice.addNewEmployee);
+        // Employee detail
+        app.route('/employee/:employeeId')
+            // get specific Employee
+            .get(this.employeeservice.getEmployeeByID)
+            // add specific Employee
+            .put(this.employeeservice.updateEmployee)
+            // delete specific Employee
+            .delete(this.employeeservice.deleteEmployee);
 
         // USER
         app.route('/user')
