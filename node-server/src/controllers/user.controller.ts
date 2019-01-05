@@ -4,32 +4,21 @@ import { UserSchema } from '../models/user-schema';
 import { Request, Response } from 'express';
 const User = mongoose.model('Users', UserSchema);
 
-export class UserService {
+export class UserController {
 
-    public addUser (req: Request, res: Response) {  
-        let body = _.pick(req.body,['email','passwoard']);             
+    public addUser(req: Request, res: Response) {
+        let body = _.pick(req.body, ['email', 'passwoard']);
         let user = new User(body);
-        //modelmethod
-        //User.findByToken
-        //instance method
-       // user.generateAuthToken
-       user.save().then(()=>{
-           return user.generateAuthToken();
-       }).then((token)=>{
-           res.header('x-auth',token).send(user);
+        user.save().then(() => {
+            return user.generateAuthToken();
+        }).then((token) => {
+            res.header('x-auth', token).send(user);
 
-       }).catch((e)=>{
-           res.status(400).sendStatus(e)
-       })
-        // user.save((err, user) => {
-        //     return user.generateAuthToken();
-        //     if (err) {
-        //         res.status(400).send(err);
-        //     }
-        //     res.json(user);
-        // });
+        }).catch((e) => {
+            res.status(400).sendStatus(e)
+        })
     }
-    public getUser (req: Request, res: Response) {         
+    public getUsers(req: Request, res: Response) {
         User.find({}, (err, user) => {
             if (err) {
                 res.send(err);
@@ -61,8 +50,20 @@ export class UserService {
             res.json({ message: 'Successfully deleted user!' });
         });
     }
-    public login(req: Request, res: Response){
+    public login(req: Request, res: Response) {
+        let body = _.pick(req.body, ['email', 'passwoard']);
+        User.findByCredentials(body.email, body.passwoard)
+            .then(user => {
+                return user.generateAuthToken().then((token) => {
+                    res.header('x-auth', token).send(user);
+                })
+            }).catch((e) => {
+                res.status(400).send();
+            })
 
+    }
+    public findByToken(req, res: Response) {
+        res.send(req.user);
     }
 
 }

@@ -1,15 +1,16 @@
-import * as SHA265 from 'crypto-js'
-import * as jwt from 'jsonwebtoken';
+import * as bcrypt from 'bcryptjs'
 export class HashingService {
-    
-    private salt:string;
-    public hash(string){
-        return SHA265(string).toString()
+    public hash(passwoard){
+        bcrypt.genSalt(10, (err,salt)=>{
+              bcrypt.hash(passwoard,salt,(err,hash)=>{
+                return hash;
+            })
+        });
+       
     }
-    public token(data,secret){
-        return jwt.sign(data,secret);
-    }
-    public verifyToken(token, secret){
-        return jwt.verify(token, secret);
+    public checkPasswoard(passwoard,hashPass){
+        return bcrypt.compare(passwoard,hashPass,(err,res)=>{
+            return res;
+        });
     }
 }

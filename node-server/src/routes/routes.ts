@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
-import { ContactService } from "../service/contact.service";
-import { UserService } from "../service/user.service"
+import { ContactController } from "../controllers/contact.controller";
+import { UserController } from "../controllers/user.controller";
+import  { AuthService } from "../service/auth.service"
 export class Routes {
-    private contactservice = new ContactService();
-    private userService = new UserService();
- 
+    private contactservice = new ContactController();
+    private userService = new UserController();
+    private auth = new AuthService();
     // public contactservice: ContactService = new ContactService();
     public routes(app): void {
 
@@ -32,7 +33,10 @@ export class Routes {
         // USER
         app.route('/user')
             .post(this.userService.addUser)
-            .get(this.userService.getUser);
+            //.get(this.userService.getUsers);
+            // USER PRIVATE ROUTE
+            app.route('/user/login').post(this.userService.login);
+            app.route('/user/me').get(this.auth.authenticate,this.userService.findByToken);
 
     }
 }
