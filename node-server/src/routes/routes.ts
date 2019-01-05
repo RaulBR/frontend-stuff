@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { ContactController } from "../controllers/contact.controller";
+import { EmployeeController } from "../controllers/employee.controller";
 import { UserController } from "../controllers/user.controller";
 import  { AuthService } from "../service/auth.service"
 export class Routes {
-    private contactservice = new ContactController();
+    private contactservice = new EmployeeController();
     private userService = new UserController();
     private auth = new AuthService();
     // public contactservice: ContactService = new ContactService();
@@ -18,17 +18,17 @@ export class Routes {
         // Contact 
         app.route('/contact')
             // GET endpoint 
-            .get(this.contactservice.getContacts)
+            .get(this.auth.authenticate,this.contactservice.getEmployees)
             // POST endpoint
-            .post(this.contactservice.addNewContact);
+            .post(this.auth.authenticate,this.contactservice.addNewEmployee);
         // Contact detail
-        app.route('/contact/:contactId')
+        app.route('/contact/:employeeId')
             // get specific contact
-            .get(this.contactservice.getContactByID)
+            .get(this.contactservice.getEmployeeByID)
             // add specific contact
-            .put(this.contactservice.updateContact)
+            .put(this.contactservice.updateEmployee)
             // delete specific contact
-            .delete(this.contactservice.deleteContact);
+            .delete(this.contactservice.deleteEmployee);
 
         // USER
         app.route('/user')
@@ -37,6 +37,7 @@ export class Routes {
             // USER PRIVATE ROUTE
             app.route('/user/login').post(this.userService.login);
             app.route('/user/me').get(this.auth.authenticate,this.userService.findByToken);
+            app.route('/user/logout').delete(this.auth.authenticate,this.userService.logout);
 
     }
 }

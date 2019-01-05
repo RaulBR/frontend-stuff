@@ -62,6 +62,16 @@ export class UserController {
             })
 
     }
+    public logout(req, res) {
+        // let body = _.pick(req.body, ['email', 'passwoard']);
+        // let user = new User(body);
+        User.removeToken(req.token).then(()=>{
+            res.status(200).send();
+        },()=>{
+           res.status(400).send(); 
+        });
+
+    }
     public findByToken(req, res: Response) {
         res.send(req.user);
     }

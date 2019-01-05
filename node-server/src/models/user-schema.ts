@@ -69,6 +69,18 @@ UserSchema.statics.findByToken = function (token) {
         'tokens.access': 'auth'
     })
 }
+
+UserSchema.statics.removeToken = function (token) {
+    let user = this;
+    return user.updateOne({
+        $pull:{
+            tokens:{
+                token:token
+            }
+        }
+
+    })
+}
 UserSchema.statics.findByCredentials = function (email, passwoard) {
     let User = this;
     return User.findOne({email}).then((user)=>{
