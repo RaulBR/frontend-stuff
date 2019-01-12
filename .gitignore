@@ -1,5 +1,6 @@
 /node-server/node_modules
 front/node-server/dist
 node-server/node-server/node_modules
-
+/front-app/emp-app/node_modules
+/front-app/node-server/node_modules
 node-server/dist/

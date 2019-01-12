@@ -1,0 +1,33 @@
+// @import "~src/scss/_colors";
+// @import "~src/scss/_utilitty";
+
+mat-toolbar {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+.header__logo-name {
+  margin: 0 5px;
+}
+
+mat-icon {
+  height: auto;
+  width: auto;
+  font-size: 40px;
+
+
+}
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+  <mat-card class = "center">
+      <mat-card-header>
+          <mat-card-title >Login</mat-card-title>
+      </mat-card-header>
+      <form>
+        <mat-form-field>
+          <input  matInput email placeholder="email">
+        </mat-form-field>
+        <mat-form-field ng-show>
+          <input matInput ng-show placeholder="passwoard">
+        </mat-form-field>
+      </form>
+      <!-- <mat-card-content>
+        errors
+      </mat-card-content> -->
+      <mat-card-actions>
+        <button mat-raised-button color="accent"
+          (click)="onLogin()">Login</button>
+        <button 
+         mat-raised-button color="accent">Sign up</button>
+      </mat-card-actions>
+    </mat-card>
