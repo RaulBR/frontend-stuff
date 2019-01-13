@@ -9,7 +9,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { HeaderComponent } from './header/header.component';
-
+import { HttpService } from './service/http.service';
+import { HttpModule } from '@angular/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +23,12 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+  
+    HttpModule,
     AppRoutingModule,
     MaterialModule
-  ],
-  providers: [],
+    ],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

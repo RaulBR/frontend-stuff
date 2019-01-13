@@ -3,11 +3,15 @@
     <div class="logo-container">
       <a class="header__logo noSelect"></a>
       <div class="header__logo-name noSelect">
-        <h1>Employsee app</h1>
+        <h1>Employee app</h1>
       </div>
     </div>
     <!-- <mat-icon (click)="showMeniu($event)" [ngClass]=" {hide:!isLogedin} ">
       format_list_bulleted
     </mat-icon> -->
+    <button  mat-raised-button color="accent"
+        [ngClass]=" {hide:!isLogedin} "
+        (click)="logout()">Logout</button>
   </mat-toolbar-row>
+  
 </mat-toolbar>

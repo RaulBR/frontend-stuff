@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
+import { Router } from '@angular/router';
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -21,13 +22,15 @@ export class EmployeeComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  constructor() { }
+  constructor(private router:Router) { }
   
   
   ngOnInit() {
     this.dataSource.sort = this.sort;
   }
-
+  onNewUser(){
+    this.router.navigate(['employee']);
+  }
 }
 export interface PeriodicElement {
   name: string;

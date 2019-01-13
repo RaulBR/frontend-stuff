@@ -16,4 +16,12 @@ mat-card{
         display: flex;
         width:100%;
     }
+    mat-card-actions{
+        display: flex;
+        justify-content: space-between;
+        button{
+            margin: 0 10px;
+            width:80px;
+        }
+    }
 }
