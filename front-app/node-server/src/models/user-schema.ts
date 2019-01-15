@@ -18,7 +18,7 @@ export const UserSchema = new Schema({
             message: '{VALUE} is not a valid email'
         }
     },
-    passwoard: {
+    password: {
         type: String,
         requierd: true,
         minlength: 5
@@ -81,14 +81,14 @@ UserSchema.statics.removeToken = function (token) {
 
     })
 }
-UserSchema.statics.findByCredentials = function (email, passwoard) {
+UserSchema.statics.findByCredentials = function (email, password) {
     let User = this;
     return User.findOne({email}).then((user)=>{
         if(!user){
             return Promise.reject();
         }
         return new Promise((resolve,reject)=>{
-             bcrypt.compare(passwoard,user.passwoard,(err,res)=>{
+             bcrypt.compare(password,user.password,(err,res)=>{
                if(res){
                    resolve(user);
                } else{
@@ -100,10 +100,10 @@ UserSchema.statics.findByCredentials = function (email, passwoard) {
 };
 UserSchema.pre('save', function (next) {
     var user = this;
-    if (user.isModified('passwoard')) {
+    if (user.isModified('password')) {
         bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(user.passwoard, salt, (err, hash) => {
-                user.passwoard = hash;
+            bcrypt.hash(user.password, salt, (err, hash) => {
+                user.password = hash;
                 next();
             })
         });

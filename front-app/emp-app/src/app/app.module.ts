@@ -11,8 +11,9 @@ import { EmployeeFormComponent } from './employee/employee-form/employee-form.co
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpService } from './service/http.service';
-import { HttpModule } from '@angular/http'
 import { LoginService } from './login/login.service';
+import { EmployeeService } from './employee/employee.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +27,14 @@ import { LoginService } from './login/login.service';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-  
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     MaterialModule
     ],
-  providers: [HttpService,
-    LoginService],
+  providers: [
+    HttpService,
+    LoginService,
+    EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

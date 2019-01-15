@@ -7,8 +7,9 @@ const User = mongoose.model('Users', UserSchema);
 export class UserController {
 
     public addUser(req: Request, res: Response) {
-        let body = _.pick(req.body, ['email', 'passwoard']);
+        let body = _.pick(req.body, ['email', 'password']);
         let user = new User(body);
+        console.log(body);
         user.save().then(() => {
             return user.generateAuthToken();
         }).then((token) => {
@@ -51,10 +52,11 @@ export class UserController {
         });
     }
     public login(req: Request, res: Response) {
-        let body = _.pick(req.body, ['email', 'passwoard']);
-        User.findByCredentials(body.email, body.passwoard)
+        let body = _.pick(req.body, ['email', 'password']);
+        User.findByCredentials(body.email, body.password)
             .then(user => {
                 return user.generateAuthToken().then((token) => {
+                    user.a = token;
                     res.header('x-auth', token).send(user);
                 })
             }).catch((e) => {

@@ -1,24 +1,28 @@
-
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class HttpService{
     URL = "http://localhost:4000/";
-    constructor(private http: Http) { }
+    constructor(private http: HttpClient) { }
+    // header = new HttpHeaders().set();
+    post(endpoint,obj){
+        endpoint=this.URL+endpoint;
+        return this.http.post(endpoint,obj
+            // ,{headers:this.header}
+            );
 
-    save(endpoint,obj){
-        this.URL=this.URL+endpoint;
-        console.log(endpoint);
-        return this.http.post(this.URL,obj);
-
     }
-    delete(url,obj){
-        return this.http.delete(url,obj);
+    delete(endpoint,obj){
+        endpoint=this.URL+endpoint;
+        return this.http.delete(endpoint,obj);
     }
-    edit(url,obj){
-        return this.http.put(url,obj);
+    edit(endpoint,obj){
+        endpoint=this.URL+endpoint;
+        return this.http.put(endpoint,obj);
     }
-    get(url){
-        return this.http.get(this.URL);
+    get(endpoint){
+        endpoint=this.URL+endpoint;
+        return this.http.get(endpoint);
     }
+   
 }

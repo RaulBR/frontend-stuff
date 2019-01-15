@@ -2,12 +2,21 @@
       <mat-card-header>
           <mat-card-title >Login</mat-card-title>
       </mat-card-header>
-      <form>
+      <form  (ngSubmit)="onSubmit(f)" #f="ngForm">
         <mat-form-field>
-          <input  matInput email placeholder="email">
+          <input  matInput
+                  email 
+                  placeholder="email" 
+                  ngModel 
+                  name="email">
         </mat-form-field>
         <mat-form-field ng-show>
-          <input matInput type="password" ng-model="password" placeholder="passwoard">
+          <input matInput 
+                type="password" 
+                ng-model="password" 
+                placeholder="password"
+                ngModel 
+                name="password" >
         </mat-form-field>
       </form>
       <!-- <mat-card-content>

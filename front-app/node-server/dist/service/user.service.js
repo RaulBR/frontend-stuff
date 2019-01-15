@@ -6,7 +6,7 @@ const user_schema_1 = require("../models/user-schema");
 const User = mongoose.model('Users', user_schema_1.UserSchema);
 class UserService {
     addUser(req, res) {
-        let body = _.pick(req.body, ['email', 'passwoard']);
+        let body = _.pick(req.body, ['email', 'password']);
         let user = new User(body);
         //modelmethod
         //User.findByToken

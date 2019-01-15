@@ -1,43 +1,42 @@
-<form  (ngSubmit)="onSubmit(f)" #f="ngForm"
-        class="container">
-  <mat-form-field>
-    <input matInput  
-     email
-     required
-     placeholder="email"
-     ngModel
-     name="email"
-     #email="ngModel">
-  </mat-form-field>
-<p *ngIf="!email.valid && email.toucht">
-qweqwe
-</p>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="container">
   <mat-form-field>
     <input matInput 
-      type="password" 
-      required
-      minlength="4"   
-      placeholder="passwoard"
-      ngModel
-      name="password"
-      #password="ngModel"
-      (ngModelChange)="checkPass()">
+           email
+           required
+           placeholder="email" 
+           ngModel 
+           name="email" 
+           #email="ngModel">
+  </mat-form-field>
+  <p *ngIf="!email.valid && email.toucht">
+    qweqwe
+  </p>
+  <mat-form-field>
+    <input matInput 
+          type="password" 
+          required 
+          minlength="5" 
+          placeholder="password" 
+          ngModel 
+          name="password" 
+          #password="ngModel"
+          (ngModelChange)="checkPass()">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput 
-    type="password"
-    required
-    minlength="4"  
-    placeholder="confirm passwoard"
-    ngModel
-    name="password2"
-    #password2="ngModel"
-    (ngModelChange)="checkPass()">
+    <input 
+          matInput 
+          type="password" 
+          required 
+          minlength="5" 
+          placeholder="confirm password" 
+          ngModel 
+          name="password2"
+          #password2="ngModel" 
+          (ngModelChange)="checkPass()">
   </mat-form-field>
   <p *ngIf="!disabled">passwords must mach</p>
-  
-  <button mat-raised-button color="accent" [disabled]="!f.valid || !disabled"
-   type="submit">Submit</button>
+
+  <button mat-raised-button color="accent" [disabled]="!f.valid || !disabled" type="submit">Submit</button>
 
 </form>

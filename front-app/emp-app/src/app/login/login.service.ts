@@ -2,28 +2,25 @@ import { HttpService } from "../service/http.service";
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class LoginService{
+export class LoginService {
 
-    constructor( private httpSe:HttpService){}
+    constructor(private httpService: HttpService) { }
 
-     login(){
-        //return  this.http.post()
-     }
-
-     signUp(formData:User){
-         this.httpSe.get('').subscribe(res=>{
-
-         })
-        this.httpSe.save('user',formData).subscribe(res=>{
-            console.log(res)
-        })
-       
-     }
+    login(loginOnj:User) {
+        return this.httpService.post('user/login', loginOnj);
+    }
+    logout(){
+        return this.httpService.delete('user/logout',{});
     }
 
-
-
-    export interface User{
-        email:String,
-        passwoar:String
+    signUp(formData: User) {
+       return this.httpService.post('user', formData);
     }
+}
+
+
+
+export interface User {
+    email: String,
+    passwoar: String
+}

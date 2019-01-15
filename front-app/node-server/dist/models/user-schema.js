@@ -17,7 +17,7 @@ exports.UserSchema = new Schema({
             message: '{VALUE} is not a valid email'
         }
     },
-    passwoard: {
+    password: {
         type: String,
         requierd: true,
         minlength: 5

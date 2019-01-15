@@ -28,7 +28,11 @@ export class LoginFormComponent implements OnInit {
     if(this.disabled && this.signupForm.valid){
       let formData = this.signupForm.value;
       delete formData.password2;
-      this.loginService.signUp(formData);
+      this.loginService.signUp(formData).subscribe((res)=>{
+          
+      },(err)=>{
+
+      });
     }
     
   }
