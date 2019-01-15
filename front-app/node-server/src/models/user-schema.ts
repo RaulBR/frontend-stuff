@@ -33,6 +33,7 @@ export const UserSchema = new Schema({
             requierd: true
         }
     }],
+    token:{type:String},
     created_date: {
         type: Date,
         default: Date.now
@@ -43,7 +44,7 @@ export const UserSchema = new Schema({
 UserSchema.methods.toJSON = function () {
     let user = this;
     let userObject = user.toObject();
-    return _.pick(userObject, '_id', 'email');
+    return _.pick(userObject, '_id', 'email','token');
 
 }
 UserSchema.methods.generateAuthToken = function () {

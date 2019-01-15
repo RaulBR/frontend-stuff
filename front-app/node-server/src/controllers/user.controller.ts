@@ -56,7 +56,7 @@ export class UserController {
         User.findByCredentials(body.email, body.password)
             .then(user => {
                 return user.generateAuthToken().then((token) => {
-                    user.a = token;
+                    user.token = token;
                     res.header('x-auth', token).send(user);
                 })
             }).catch((e) => {
