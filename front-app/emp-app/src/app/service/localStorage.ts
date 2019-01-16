@@ -1,4 +1,5 @@
 import { User } from "../models/user.model";
+import { Subject } from "rxjs";
 
 export class LocalStorageService {
 
@@ -6,6 +7,7 @@ export class LocalStorageService {
         localStorage.setItem("user", user.email);
         localStorage.setItem("token", user.token);
         localStorage.setItem("id", user._id);
+        
     }
     getToken() {
         return localStorage.getItem('token');

@@ -33,8 +33,11 @@ export class LoginFormComponent implements OnInit {
       let formData = this.signupForm.value;
       delete formData.password2;
       this.loginService.signUp(formData).subscribe((res)=>{
-        this.local.setToLocalStorage(res);
-        this.router.navigate(['main']);
+        this.local.setToLocalStorage(res)
+          this.router.navigate(['main']);
+       
+       
+        
       },(err)=>{
 
       });

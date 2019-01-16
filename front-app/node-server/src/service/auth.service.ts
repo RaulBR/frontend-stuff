@@ -6,9 +6,10 @@ const User = mongoose.model('Users', UserSchema);
 export class AuthService {
     public  authenticate(req:Request,res:Response,next) {
         let token = req.header('Authorization');
+        console.log('here',token);
         User.findByToken(token).then((user)=>{
             if(!user){
-                return Promise.reject('Must be Loged in');
+                return Promise.reject({error:'Must be Loged in'});
             }
 
             req.body.user = user;

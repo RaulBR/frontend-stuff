@@ -6,7 +6,8 @@ export class HttpService {
     URL = "http://localhost:4000/";
     constructor(private http: HttpClient,
         private local: LocalStorageService) { }
-    header = this.getHeadder() ;
+    header = new HttpHeaders()
+    .append('Authorization', this.local.getToken());
     post<T>(endpoint, obj) {
         endpoint = this.URL + endpoint;
         return this.http.post<T>(endpoint, obj, { headers: this.header });
@@ -25,14 +26,9 @@ export class HttpService {
         return this.http.get<T>(endpoint, { headers: this.header });
     }
     getHeadder() {
-        let token = this.local.getToken();
-        return new HttpHeaders()
-    //     .set("Access-Control-Allow-Origin", "*")
-    //     .append("Access-Control-Allow-Credentials", "true")
-    //    .append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT")
-    //    .append('Access-Control-Allow-Headers', 'Authorization')
+        return 
     //    .append("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
-       .append('Authorization', token);
+       
        
        
     }

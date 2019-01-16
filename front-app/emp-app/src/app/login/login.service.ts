@@ -4,7 +4,7 @@ import { User } from "../models/user.model";
 
 @Injectable()
 export class LoginService {
-
+    
     constructor(private httpService: HttpService) { }
 
     login(loginOnj: User) {
