@@ -13,6 +13,7 @@ export class UserController {
         user.save().then(() => {
             return user.generateAuthToken();
         }).then((token) => {
+            user.token = token;
             res.header('x-auth', token).send(user);
 
         }).catch((e) => {

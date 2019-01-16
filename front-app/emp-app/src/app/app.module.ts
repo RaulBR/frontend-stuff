@@ -14,6 +14,7 @@ import { HttpService } from './service/http.service';
 import { LoginService } from './login/login.service';
 import { EmployeeService } from './employee/employee.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageService } from './service/localStorage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     HttpService,
     LoginService,
-    EmployeeService],
+    EmployeeService,
+    LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

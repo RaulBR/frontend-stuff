@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
+import { Employee } from 'src/app/models/employee.model';
 
 @Component({
   selector: 'app-employee-form',
@@ -7,11 +10,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-form.component.scss']
 })
 export class EmployeeFormComponent implements OnInit {
+  @ViewChild('f') signupForm:NgForm;
+  constructor(private router:Router,
+              private employeeService:EmployeeService) { }
+  onSubmit(){
+    
+    if(this.signupForm.valid){
+      let formData = this.signupForm.value;
+      delete formData.password2;
+      this.employeeService.saveEmployee<Employee>(formData)
+      .subscribe((res)=>{
+        this.router.navigate(['main']);
+      },(err)=>{
 
-  constructor(private router:Router) { }
+      });
+    }
+  }
   onBack(){
     this.router.navigate(['main']);
   }
+
   ngOnInit() {
   }
 

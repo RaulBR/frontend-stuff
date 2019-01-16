@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 const Employee = mongoose.model('Employee', EmployeeSchema);
 export class EmployeeController {
 
-    public addNewEmployee(req:Request, res:Response) {
+    public addNewEmployee(req: Request, res: Response) {
         req.body._user_id = req.body.user._id;
         let newEmployee = new Employee(req.body);
         newEmployee.save((err, employee) => {
@@ -14,7 +14,7 @@ export class EmployeeController {
             res.json(employee);
         });
     }
-    public getEmployees(req:Request, res:Response) {
+    public getEmployees(req: Request, res: Response) {
         Employee.find({ _user_id: req.body.user._id }, (err, employee) => {
             if (err) {
                 res.send(err);

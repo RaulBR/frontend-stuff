@@ -18,7 +18,7 @@ export const EmployeeSchema = new Schema({
         type: String            
     },
     phone: {
-        type: Number            
+        type: String            
     },
     _user_id:{
         type:mongoose.Schema.Types.ObjectId,

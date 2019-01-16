@@ -1,24 +1,51 @@
 <button mat-raised-button 
-(click)="onBack()">beack</button>
-<div class="container">
-  <mat-form-field>
-    <input matInput placeholder="first name *">
+(click)="onBack()"><beack</button>
+<form class="container" 
+      (ngSubmit)="onSubmit()" 
+      #f="ngForm" 
+      class="container">
+    <mat-form-field>
+    <input matInput 
+          required 
+          ngModel 
+          name="firstName" 
+          #firstName="ngModel"
+           placeholder="first name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="last name *">
+    <input matInput 
+           required
+           ngModel 
+           name="lastName" 
+           #lastName="ngModel"
+           placeholder="last name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput email placeholder="email">
+    <input matInput 
+          email 
+          ngModel 
+           name="email" 
+           #email="ngModel"
+          placeholder="email">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="company">
+    <input matInput 
+          ngModel 
+          name="company" 
+          #company="ngModel"
+           placeholder="company">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="phone">
+    <input matInput 
+          ngModel 
+          name="phone" 
+          #phone="ngModel"
+          placeholder="phone">
   </mat-form-field>
-  <button mat-raised-button color="accent"
-  (click)="onLogin()">Submit</button>
+  <button mat-raised-button color="accent" 
+          [disabled]="!f.valid">
+    Submit</button>
 
-</div>
+</form>

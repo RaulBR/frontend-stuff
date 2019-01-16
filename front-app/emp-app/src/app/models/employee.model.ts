@@ -1,7 +1,9 @@
 export interface Employee {
     _id: string;
-    'fistName': string;
-    'lastName': number;
-    email: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    company:String;
     phone: string;
+    created_date:string;
   }

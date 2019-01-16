@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../login.service';
+import { LocalStorageService } from 'src/app/service/localStorage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -12,7 +14,9 @@ export class LoginFormComponent implements OnInit {
   @ViewChild('f') signupForm:NgForm;
   @ViewChild('password2') password2;
   @ViewChild('password') password;
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,
+              private local: LocalStorageService,
+              private router:Router) { }
 
   ngOnInit() {
     
@@ -29,7 +33,8 @@ export class LoginFormComponent implements OnInit {
       let formData = this.signupForm.value;
       delete formData.password2;
       this.loginService.signUp(formData).subscribe((res)=>{
-          
+        this.local.setToLocalStorage(res);
+        this.router.navigate(['main']);
       },(err)=>{
 
       });
