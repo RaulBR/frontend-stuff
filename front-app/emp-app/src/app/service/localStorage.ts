@@ -2,8 +2,9 @@ import { User } from "../models/user.model";
 import { Subject } from "rxjs";
 
 export class LocalStorageService {
-
-    setToLocalStorage(user: User) {
+    subj = new Subject();
+    async setToLocalStorage(user: User) {
+       
         localStorage.setItem("user", user.email);
         localStorage.setItem("token", user.token);
         localStorage.setItem("id", user._id);

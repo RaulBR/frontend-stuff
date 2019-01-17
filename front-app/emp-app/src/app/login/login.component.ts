@@ -17,10 +17,13 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(this.signupForm.value)
       .subscribe((res) => {
-        this.local.setToLocalStorage(res);
-        this.router.navigate(['main']);
+        this.local.setToLocalStorage(res)
+        .then(()=>{
+            this.router.navigate(['main'])
+      })
+      
       }, (err) => {
-
+        console.log('error ',err)
       });
   }
   signup() {
