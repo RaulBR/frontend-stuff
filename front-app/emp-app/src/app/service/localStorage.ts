@@ -2,22 +2,24 @@ import { User } from "../models/user.model";
 import { Subject } from "rxjs";
 
 export class LocalStorageService {
-    subj = new Subject();
-    async setToLocalStorage(user: User) {
-       
+    tokenEmit = new Subject();
+    setToLocalStorage(user: User) {
         localStorage.setItem("user", user.email);
         localStorage.setItem("token", user.token);
         localStorage.setItem("id", user._id);
-        
+        this.tokenEmit.next(user);
     }
+
     getToken() {
         return localStorage.getItem('token');
-
+        
     }
+
     getId() {
         return localStorage.getItem('id');
 
     }
+
     getEmail() {
         return localStorage.getItem('user');
 
@@ -25,13 +27,13 @@ export class LocalStorageService {
 
     getUserObj() {
         let user: User;
-        user.email = this.getEmail();
-        user.token = this.getToken();
-        user._id = this.getId();
+        user.email = localStorage.getItem('user');
+        user.token = localStorage.getItem('token');
+        user._id = localStorage.getItem('id');
         return user;
     }
 
-    empty(){
+    empty() {
         localStorage.clear();
     }
 }

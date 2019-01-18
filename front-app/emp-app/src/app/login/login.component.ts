@@ -10,20 +10,19 @@ import { LocalStorageService } from '../service/localStorage';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('f') signupForm: NgForm;
+  showError:boolean
   constructor(private router: Router,
     private loginService: LoginService,
     private local :LocalStorageService) { }
   onLogin() {
-
+  
     this.loginService.login(this.signupForm.value)
       .subscribe((res) => {
         this.local.setToLocalStorage(res)
-        .then(()=>{
-            this.router.navigate(['main'])
-      })
-      
+        this.router.navigate(['main'])
+        this.showError=false
       }, (err) => {
-        console.log('error ',err)
+        this.showError= true;
       });
   }
   signup() {

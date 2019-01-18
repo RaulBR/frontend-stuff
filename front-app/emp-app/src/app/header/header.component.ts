@@ -9,19 +9,28 @@ import { LocalStorageService } from '../service/localStorage';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private router:Router,
-              private loginService:LoginService,
-              private local:LocalStorageService) { }
+  isLogedin = true;
+  constructor(private router: Router,
+              private loginService: LoginService,
+              private local: LocalStorageService) { }
 
   ngOnInit() {
+    console.log(this.local.getToken())
+    if (this.local.getToken()) {
+      this.isLogedin = true;
+    }
+    this.local.tokenEmit.subscribe((resoult) => {
+      this.isLogedin = true;
+    })
   }
-  logout(){
+
+  logout() {
+    this.isLogedin = false;
     this.local.empty();
-      this.router.navigate(['']);
-    this.loginService.logout().subscribe((res)=>{
-      
+    this.router.navigate(['']);
+    this.loginService.logout().subscribe((res) => {
+
     });
-    
+
   }
 }

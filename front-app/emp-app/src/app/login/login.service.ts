@@ -4,19 +4,19 @@ import { User } from "../models/user.model";
 
 @Injectable()
 export class LoginService {
-    
+
     constructor(private httpService: HttpService) { }
 
     login(loginOnj: User) {
         return this.httpService.post<User>('user/login', loginOnj);
     }
-    logout(){
+    logout() {
         return this.httpService.delete<User>('user/logout');
     }
 
     signUp(formData: User) {
-       return this.httpService.post<User>('user', formData);
+        return this.httpService.post<User>('user', formData);
     }
-  
-    
+
+
 }
