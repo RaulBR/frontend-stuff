@@ -33,7 +33,7 @@ export const UserSchema = new Schema({
             requierd: true
         }
     }],
-    token:{type:String},
+    token: { type: String },
     created_date: {
         type: Date,
         default: Date.now
@@ -44,7 +44,7 @@ export const UserSchema = new Schema({
 UserSchema.methods.toJSON = function () {
     let user = this;
     let userObject = user.toObject();
-    return _.pick(userObject, '_id', 'email','token');
+    return _.pick(userObject, '_id', 'email', 'token');
 
 }
 UserSchema.methods.generateAuthToken = function () {
@@ -71,30 +71,33 @@ UserSchema.statics.findByToken = function (token) {
     })
 }
 
-UserSchema.statics.removeToken = function (token) {
-    let user = this;
-    return user.updateOne({
-        $pull:{
-            tokens:{
-                token:token
+UserSchema.statics.removeToken = function (token, id) {
+    let User = this;
+    return User.updateOne(
+        {
+            _id: id
+        },
+        {
+            $pull: {
+                "tokens": {
+                    token: token
+                }
             }
-        }
-
-    })
+        })
 }
 UserSchema.statics.findByCredentials = function (email, password) {
     let User = this;
-    return User.findOne({email}).then((user)=>{
-        if(!user){
+    return User.findOne({ email }).then((user) => {
+        if (!user) {
             return Promise.reject();
         }
-        return new Promise((resolve,reject)=>{
-             bcrypt.compare(password,user.password,(err,res)=>{
-               if(res){
-                   resolve(user);
-               } else{
-                   reject();
-               }
+        return new Promise((resolve, reject) => {
+            bcrypt.compare(password, user.password, (err, res) => {
+                if (res) {
+                    resolve(user);
+                } else {
+                    reject();
+                }
             });
         });
     })

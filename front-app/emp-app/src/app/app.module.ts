@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material-imports';
 import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeFormComponent } from './employee/employee-form/employee-form.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpService } from './service/http.service';
-import { LoginService } from './login/login.service';
-import { EmployeeService } from './employee/employee.service';
+import { LoginService } from './login/login.http.service';
+import { EmployeeService } from './employee/employee.http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from './service/localStorage';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { AuthService } from './service/auth';
+import { AuthGuardService } from './service/auth.guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { LocalStorageService } from './service/localStorage';
     HttpService,
     LoginService,
     EmployeeService,
-    LocalStorageService],
+    LocalStorageService,
+    AuthService,
+    AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

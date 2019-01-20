@@ -1,44 +1,48 @@
+<div class="welcome">Welcome: {{name}}</div>
+<button mat-raised-button color="accent" (click)="onNewUser()">New user</button>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-<div class ="welcome" >Welcome: {{name}}</div>
-<button mat-raised-button color="accent"
-  (click)="onNewUser()">New user</button>
- <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-  <!-- Position Column -->
   <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> First name </th>
     <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
   </ng-container>
 
-  <!-- Name Column -->
+
   <ng-container matColumnDef="lastName">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Last name </th>
     <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
+
   <ng-container matColumnDef="email">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> email </th>
     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+
   <ng-container matColumnDef="company">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Complany </th>
     <td mat-cell *matCellDef="let element"> {{element.company}} </td>
   </ng-container>
   <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
-      <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
-    </ng-container>
-    <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
-        <td mat-cell *matCellDef="let element"> <button mat-button value ='{{element.id}}'> edit</button> </td>
-    </ng-container>
-   <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-        <td mat-cell *matCellDef="let element"> <button mat-button value ='{{element.id}}'> del</button> </td>
-    </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+  </ng-container>
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button
+              value='{{element._id}}'
+              (click)="onEdit(element._id)"
+              color="theme"> edit</button> 
+      <button mat-raised-button
+              value='{{element._id}}'
+              (click)="onDelete(element._id)"
+              color="warn"> del</button></td>
+  </ng-container>
+
+
 </table>

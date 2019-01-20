@@ -32,19 +32,24 @@ export class EmployeeController {
         });
     }
     public updateEmployee(req: Request, res: Response) {
+        console.log('here');
+        req.body._user_id = req.body.user._id;
         Employee.findOneAndUpdate({ _id: req.params.employeeId }, req.body, { new: true }, (err, employee) => {
             if (err) {
+                console.log('bad');
                 res.send(err);
             }
+            console.log("good");
             res.json(employee);
         });
     }
     public deleteEmployee(req: Request, res: Response) {
-        Employee.remove({ _id: req.params.employeeId }, (err, employee) => {
-            if (err) {
-                res.send(err);
+        Employee.deleteOne({ _id: req.params.employeeId }).then(
+            () => {
+                res.send({ Status: 1, statusVal: 'sucess' });
+            }, () => {
+                res.json({ error: 'delete failed' });
             }
-            res.json({ message: 'Successfully deleted employee!' });
-        });
+        );
     }
 }

@@ -1,7 +1,18 @@
 table{
     margin: auto;
     width: 100%;
+    
+    th,td{
+       text-align: center;
+    }
+    button{
+        margin:0 10px;
+    }
+    .mat-column-edit{
+        width: 200px;
+       }
 }
+
 .welcome{
    margin:15px 0 ; 
 }

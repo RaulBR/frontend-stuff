@@ -23,11 +23,11 @@ export class Routes {
         // Employee detail
         app.route('/employee/:employeeId')
             // get specific Employee
-            .get(this.employeeservice.getEmployeeByID)
+            .get(this.auth.authenticate,this.employeeservice.getEmployeeByID)
             // add specific Employee
-            .put(this.employeeservice.updateEmployee)
+            .post(this.auth.authenticate,this.employeeservice.updateEmployee)
             // delete specific Employee
-            .delete(this.employeeservice.deleteEmployee);
+            .delete(this.auth.authenticate,this.employeeservice.deleteEmployee);
 
         // USER
         app.route('/user')
@@ -35,7 +35,7 @@ export class Routes {
             //.get(this.userService.getUsers);
             // USER PRIVATE ROUTE
             app.route('/user/login').post(this.userService.login);
-            app.route('/user/me').get(this.auth.authenticate,this.userService.findByToken);
+            app.route('/user/me').get(this.userService.findByToken);
             app.route('/user/logout').delete(this.auth.authenticate,this.userService.logout);
 
     }

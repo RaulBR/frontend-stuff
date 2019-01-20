@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LoginService } from '../login.service';
+import { LoginService } from '../login.http.service';
 import { LocalStorageService } from 'src/app/service/localStorage';
 import { Router } from '@angular/router';
 
@@ -11,38 +11,41 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
   disabled = true;
-  @ViewChild('f') signupForm:NgForm;
+  @ViewChild('f') signupForm: NgForm;
   @ViewChild('password2') password2;
   @ViewChild('password') password;
-  constructor(private loginService:LoginService,
-              private local: LocalStorageService,
-              private router:Router) { }
+  constructor(private loginService: LoginService,
+    private local: LocalStorageService,
+    private router: Router) { }
 
   ngOnInit() {
-    
+
   }
-  checkPass(){
-    this. disabled = true;
-    if(this.password2.value !== this.password.value){
-      this.disabled=false;
+  checkPass() {
+    this.disabled = true;
+    if (this.password2.value !== this.password.value) {
+      this.disabled = false;
     }
-   
+
   }
-  onSubmit(){
-    if(this.disabled && this.signupForm.valid){
+  onBack() {
+    this.router.navigate(['']);
+  }
+  onSubmit() {
+    if (this.disabled && this.signupForm.valid) {
       let formData = this.signupForm.value;
       delete formData.password2;
-      this.loginService.signUp(formData).subscribe((res)=>{
+      this.loginService.signUp(formData).subscribe((res) => {
         this.local.setToLocalStorage(res)
-          this.router.navigate(['main']);
-       
-       
-        
-      },(err)=>{
+        this.router.navigate(['main']);
 
+
+
+      }, (err) => {
+        console.log(err);
       });
     }
-    
+
   }
 
 }

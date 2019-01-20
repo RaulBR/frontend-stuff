@@ -1,13 +1,19 @@
 <button mat-raised-button 
 (click)="onBack()"><beack</button>
-<form class="container" 
+<form  class = "container"
       (ngSubmit)="onSubmit()" 
-      #f="ngForm" 
-      class="container">
+      #f="ngForm" >
+      <input matInput
+      ngModel
+      name="_id"
+      #_id="ngModel"
+      class="hide">
+
+     
     <mat-form-field>
     <input matInput 
           required 
-          ngModel 
+          [ngModel]='firstName.value'
           name="firstName" 
           #firstName="ngModel"
            placeholder="first name">
@@ -16,7 +22,7 @@
   <mat-form-field>
     <input matInput 
            required
-           ngModel 
+           ngModel
            name="lastName" 
            #lastName="ngModel"
            placeholder="last name">
@@ -25,27 +31,26 @@
   <mat-form-field>
     <input matInput 
           email 
-          ngModel 
+          ngModel
            name="email" 
            #email="ngModel"
           placeholder="email">
   </mat-form-field>
   <mat-form-field>
     <input matInput 
-          ngModel 
+          ngModel
           name="company" 
           #company="ngModel"
            placeholder="company">
   </mat-form-field>
   <mat-form-field>
     <input matInput 
-          ngModel 
+          ngModel
           name="phone" 
           #phone="ngModel"
           placeholder="phone">
   </mat-form-field>
   <button mat-raised-button color="accent" 
-          [disabled]="!f.valid">
-    Submit</button>
+          [disabled]="!f.valid">Submit</button>
 
 </form>

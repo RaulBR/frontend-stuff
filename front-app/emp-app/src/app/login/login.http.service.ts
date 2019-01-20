@@ -1,9 +1,10 @@
 import { HttpService } from "../service/http.service";
 import { Injectable } from "@angular/core";
 import { User } from "../models/user.model";
+import { HttpLoginInterface } from "../interfaces/http.login.interface";
 
 @Injectable()
-export class LoginService {
+export class LoginService implements HttpLoginInterface<User> {
 
     constructor(private httpService: HttpService) { }
 
@@ -11,7 +12,7 @@ export class LoginService {
         return this.httpService.post<User>('user/login', loginOnj);
     }
     logout() {
-        return this.httpService.delete<User>('user/logout');
+        return this.httpService.delete('user/logout');
     }
 
     signUp(formData: User) {

@@ -1,3 +1,5 @@
+<button mat-raised-button 
+(click)="onBack()"><beack</button>
 <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="container">
   <mat-form-field>
     <input matInput 
@@ -8,9 +10,6 @@
            name="email" 
            #email="ngModel">
   </mat-form-field>
-  <p *ngIf="!email.valid && email.toucht">
-    qweqwe
-  </p>
   <mat-form-field>
     <input matInput 
           type="password" 

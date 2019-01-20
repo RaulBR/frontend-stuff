@@ -14,7 +14,7 @@ export class UserController {
             return user.generateAuthToken();
         }).then((token) => {
             user.token = token;
-            res.header('x-auth', token).send(user);
+            res.header('Authorization', token).send(user);
 
         }).catch((e) => {
             res.status(400).sendStatus(e)
@@ -58,7 +58,7 @@ export class UserController {
             .then(user => {
                 return user.generateAuthToken().then((token) => {
                     user.token = token;
-                    res.header('x-auth', token).send(user);
+                    res.header('Authorization', token).send(user);
                 })
             }).catch((e) => {
                 res.status(400).send();
@@ -66,7 +66,8 @@ export class UserController {
 
     }
     public logout(req:Request, res:Response) {
-        User.removeToken(req.body.token).then(()=>{
+        console.log(req.body.user._id);
+        User.removeToken(req.body.token,req.body.user._id).then(()=>{
             res.status(200).send();
         },()=>{
            res.status(400).send(); 
@@ -74,7 +75,18 @@ export class UserController {
 
     }
     public findByToken(req:Request, res: Response) {
-        res.send(req.body.user);
+        let token = req.header('Authorization');
+        User.findByToken(token).then((user)=>{
+            if(!user){
+                res.send({status:'fasle'});
+            }else{
+                res.send(user);
+            }
+               
+        }).catch(()=>{
+            res.send({status:'fasle'});
+        });
+       
     }
-
+  
 }
