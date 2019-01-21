@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Router } from '@angular/router';
-import { EmployeeService } from './employee.http.service';
+import { EmployeeService } from '../login/login-form/employee.http.service';
 import { Employee } from '../models/employee.model';
 import { LocalStorageService } from '../service/localStorage';
 import { User } from '../models/user.model';

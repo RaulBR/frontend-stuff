@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/app/models/employee.model';
 import { Subscription } from 'rxjs';
-import { EmployeeService } from '../employee/employee.http.service';
+import { EmployeeService } from '../login/login-form/employee.http.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -11,34 +11,34 @@ import { EmployeeService } from '../employee/employee.http.service';
   styleUrls: ['./employee-form.component.scss']
 })
 export class EmployeeFormComponent implements OnInit, OnDestroy {
-  @ViewChild('f') signupForm:NgForm;
-  private subscription :Subscription
-  constructor(private router:Router,
-              private employeeService:EmployeeService) { 
-                
-              }
-  onSubmit(){
-    if(this.signupForm.valid){
-      let formData = this.signupForm.value;
-      if(formData._id){
-        this.employeeService.editEmployee(formData)
-        .subscribe((res)=>{
-         // this.router.navigate(['main']);
-        },(err)=>{
-  
-        });
-      } else {
-      delete formData._id
-      this.employeeService.saveEmployee<Employee>(formData)
-      .subscribe((res)=>{
-        this.router.navigate(['main']);
-      },(err)=>{
+  @ViewChild('f') signupForm: NgForm;
+  private subscription: Subscription
+  constructor(private router: Router,
+    private employeeService: EmployeeService) {
 
-      });
-    }
+  }
+  onSubmit() {
+    if (this.signupForm.valid) {
+      let formData = this.signupForm.value;
+      if (formData._id) {
+        this.employeeService.editEmployee(formData)
+          .subscribe((res) => {
+            this.router.navigate(['main']);
+          }, (err) => {
+            
+          });
+      } else {
+        delete formData._id
+        this.employeeService.saveEmployee<Employee>(formData)
+          .subscribe((res) => {
+            this.router.navigate(['main']);
+          }, (err) => {
+
+          });
+      }
     }
   }
-  onBack(){
+  onBack() {
     this.router.navigate(['main']);
   }
 
@@ -53,8 +53,8 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
     });
   }
 
-ngOnDestroy() {
-  this.subscription.unsubscribe();
-}
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 
 }

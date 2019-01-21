@@ -10,12 +10,11 @@ import { EmployeeComponent } from './employee/employee.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { HeaderComponent } from './header/header.component';
 import { HttpService } from './service/http.service';
-import { LoginService } from './login/login.http.service';
-import { EmployeeService } from './employee/employee.http.service';
+import { LoginService } from './service/login.http.service';
+import { EmployeeService } from './login/login-form/employee.http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from './service/localStorage';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
-import { AuthService } from './service/auth';
 import { AuthGuardService } from './service/auth.guard.service';
 @NgModule({
   declarations: [
@@ -39,7 +38,6 @@ import { AuthGuardService } from './service/auth.guard.service';
     LoginService,
     EmployeeService,
     LocalStorageService,
-    AuthService,
     AuthGuardService],
   bootstrap: [AppComponent]
 })

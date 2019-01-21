@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './login.http.service';
+import { LoginService } from '../service/login.http.service';
 import { NgForm } from '@angular/forms';
 import { LocalStorageService } from '../service/localStorage';
 @Component({

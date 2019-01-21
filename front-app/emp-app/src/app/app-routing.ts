@@ -9,9 +9,9 @@ import { AuthGuardService } from "./service/auth.guard.service";
 
 const appRoutes: Routes = [
     { path: '', component: LoginComponent },
+    { path: 'signup', component: LoginFormComponent },
     { path: 'main', canActivate:[AuthGuardService], component:  EmployeeComponent },
-     { path: 'signup', component: LoginFormComponent },
-     { path: 'employee', component:  EmployeeFormComponent },
+    { path: 'employee',canActivate:[AuthGuardService], component:  EmployeeFormComponent },
     
     { path: '**', redirectTo: '' } ]
 
@@ -19,7 +19,7 @@ const appRoutes: Routes = [
 @NgModule({
     imports: [
       // RouterModule.forRoot(appRoutes, {useHash: true})
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes,{useHash: true})
     ],
     exports: [RouterModule]
   })

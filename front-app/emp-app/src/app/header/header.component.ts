@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../login/login.http.service';
+import { LoginService } from '../service/login.http.service';
 import { LocalStorageService } from '../service/localStorage';
 
 @Component({
@@ -17,14 +17,15 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     if (this.local.getToken()) {
       this.isLogedin = true;
-    }
+      return
+    }else{
     this.local.tokenEmit.subscribe((resoult) => {
       this.isLogedin = true;
     })
+    }
   }
 
   logout() {
-
     this.loginService.logout().subscribe((res) => {
       this.router.navigate(['']);
       this.isLogedin = false;

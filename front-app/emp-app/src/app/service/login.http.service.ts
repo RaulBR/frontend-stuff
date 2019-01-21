@@ -1,4 +1,4 @@
-import { HttpService } from "../service/http.service";
+import { HttpService } from "./http.service";
 import { Injectable } from "@angular/core";
 import { User } from "../models/user.model";
 import { HttpLoginInterface } from "../interfaces/http.login.interface";
@@ -19,5 +19,9 @@ export class LoginService implements HttpLoginInterface<User> {
         return this.httpService.post<User>('user', formData);
     }
 
+    isAuthenticated() {
+        return this.httpService.get('user/me')
+
+    }
 
 }
