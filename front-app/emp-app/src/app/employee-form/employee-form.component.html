@@ -7,9 +7,7 @@
       ngModel
       name="_id"
       #_id="ngModel"
-      class="hide">
-
-     
+      class="hide"> 
     <mat-form-field>
     <input matInput 
           required 
@@ -41,7 +39,7 @@
           ngModel
           name="company" 
           #company="ngModel"
-           placeholder="company">
+          placeholder="company">
   </mat-form-field>
   <mat-form-field>
     <input matInput 
@@ -50,6 +48,24 @@
           #phone="ngModel"
           placeholder="phone">
   </mat-form-field>
+  <mat-form-field>
+    <input matInput 
+          ngModel 
+          [matDatepicker]="picker" 
+          name="birthday"
+          #birthday='ngModel'     
+          placeholder="Birth day">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+ 
+    <mat-checkbox 
+    matInput
+    required
+    ngModel
+    #checked='ngModel' 
+    name="checked">I agree with the thearms</mat-checkbox>
+  
   <button mat-raised-button color="accent" 
           [disabled]="!f.valid">Submit</button>
 

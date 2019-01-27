@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { Employee } from 'src/app/models/employee.model';
+import { Employee } from '../shared/models/employee.model';
 import { Subscription } from 'rxjs';
 import { EmployeeService } from '../login/login-form/employee.http.service';
 
@@ -12,6 +12,7 @@ import { EmployeeService } from '../login/login-form/employee.http.service';
 })
 export class EmployeeFormComponent implements OnInit, OnDestroy {
   @ViewChild('f') signupForm: NgForm;
+  checked = false;
   private subscription: Subscription
   constructor(private router: Router,
     private employeeService: EmployeeService) {

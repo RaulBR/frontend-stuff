@@ -15,32 +15,30 @@ export class EmployeeController {
         });
     }
     public getEmployees(req: Request, res: Response) {
-        Employee.find({ _user_id: req.body.user._id }, (err, employee) => {
-            if (err) {
-                res.send(err);
-            }
+        Employee.find({ _user_id: req.body.user._id })
+        .then(employee=>{
             res.json(employee);
+        })
+        .catch(e=>{
+            res.send(e);
         });
     }
 
     public getEmployeeByID(req: Request, res: Response) {
-        Employee.findById(req.params.employeeId, (err, employee) => {
-            if (err) {
-                res.send(err);
-            }
+        Employee.findById(req.params.employeeId).then(employee=>{
             res.json(employee);
-        });
+        }).catch(e=>{
+            res.send(e);
+        })
     }
     public updateEmployee(req: Request, res: Response) {
-        console.log('here');
+       
         req.body._user_id = req.body.user._id;
-        Employee.findOneAndUpdate({ _id: req.params.employeeId }, req.body, { new: true }, (err, employee) => {
-            if (err) {
-                console.log('bad');
-                res.send(err);
-            }
-            console.log("good");
-            res.json(employee);
+        Employee.findOneAndUpdate({ _id: req.params.employeeId }, req.body, { new: true })
+        .then(employee=>{
+            res.send(employee);
+        }).catch(e=>{
+            res.send(e);
         });
     }
     public deleteEmployee(req: Request, res: Response) {

@@ -25,7 +25,9 @@ export class App {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
             res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-            console.log(req.body)
+            if(req.method != "OPTIONS"){
+                console.log(req.method,':', req.path ,': ',req.body);
+            }
             next();
           });
     }

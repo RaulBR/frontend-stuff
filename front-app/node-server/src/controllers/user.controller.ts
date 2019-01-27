@@ -9,48 +9,54 @@ export class UserController {
     public addUser(req: Request, res: Response) {
         let body = _.pick(req.body, ['email', 'password']);
         let user = new User(body);
-        console.log(body);
-        user.save().then(() => {
+        user.save()
+        .then(() => {
             return user.generateAuthToken();
-        }).then((token) => {
+        })
+        .then((token) => {
             user.token = token;
             res.header('Authorization', token).send(user);
-
-        }).catch((e) => {
-            res.status(400).sendStatus(e)
+        })
+        .catch((e) => {
+            console.log('here: '+e)
+            res.status(400).send(e)
         })
     }
     public getUsers(req: Request, res: Response) {
-        User.find({}, (err, user) => {
-            if (err) {
-                res.send(err);
-            }
+        User.find({})
+        .then(user=>{
             res.json(user);
-        });
+        })
+        .catch(e=>{
+            res.send(e);   
+        })
     }
     public getUserByID(req: Request, res: Response) {
-        User.findById(req.params.userId, (err, user) => {
-            if (err) {
-                res.send(err);
-            }
-            res.json(user);
-        });
+        User.findById(req.params.userId)
+        .then(user=>{
+            res.send(user);
+        }).catch(e=>{
+            res.send(e);
+        })
+       
     }
     public updateUser(req: Request, res: Response) {
-        User.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true }, (err, user) => {
-            if (err) {
-                res.send(err);
-            }
-            res.json(user);
-        });
+        User.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true })
+        .then(user=>{
+            res.send(user);
+        }).catch(e=>{
+            res.send(e);
+        })
+        
     }
     public deleteUser(req: Request, res: Response) {
-        User.remove({ _id: req.params.contactId }, (err, user) => {
-            if (err) {
-                res.send(err);
-            }
+        User.remove({ _id: req.params.contactId })
+        .then(user=>{
             res.json({ message: 'Successfully deleted user!' });
-        });
+        }).catch(e=>{
+            res.send(e);
+        })
+        
     }
     public login(req: Request, res: Response) {
         let body = _.pick(req.body, ['email', 'password']);
@@ -60,17 +66,20 @@ export class UserController {
                     user.token = token;
                     res.header('Authorization', token).send(user);
                 })
-            }).catch((e) => {
+            })
+            .catch((e) => {
                 res.status(400).send();
             })
 
     }
     public logout(req:Request, res:Response) {
-        console.log(req.body.user._id);
-        User.removeToken(req.body.token,req.body.user._id).then(()=>{
+
+        User.removeToken(req.body.token,req.body.user._id)
+        .then(()=>{
             res.status(200).send();
-        },()=>{
-           res.status(400).send(); 
+        })
+        .catch(e=>{
+             res.status(400).send(); 
         });
 
     }

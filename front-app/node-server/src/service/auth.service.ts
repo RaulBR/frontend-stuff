@@ -12,7 +12,6 @@ export class AuthService {
             }
             req.body.user = user;
             req.body.token = token;
-            console.log("ok");
             next();
         }).catch((e)=>{
             res.status(401).send();

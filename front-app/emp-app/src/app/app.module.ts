@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material-imports';
 import { EmployeeComponent } from './employee/employee.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './shared/header/header.component';
 import { HttpService } from './service/http.service';
 import { LoginService } from './service/login.http.service';
 import { EmployeeService } from './login/login-form/employee.http.service';
@@ -16,6 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from './service/localStorage';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { AuthGuardService } from './service/auth.guard.service';
+import { SnackBarComponent } from './shared/snackbar/snackbar.component';
+import { SnackBarService } from './shared/snackbar/snackbar.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { AuthGuardService } from './service/auth.guard.service';
     EmployeeComponent,
     EmployeeFormComponent,
     LoginFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,12 @@ import { AuthGuardService } from './service/auth.guard.service';
     LoginService,
     EmployeeService,
     LocalStorageService,
-    AuthGuardService],
-  bootstrap: [AppComponent]
+    AuthGuardService,
+    SnackBarService],
+  entryComponents:[
+      SnackBarComponent],
+  bootstrap: [AppComponent,
+    ]
+    
 })
 export class AppModule { }

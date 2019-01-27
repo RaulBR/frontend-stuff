@@ -24,6 +24,14 @@ export const EmployeeSchema = new Schema({
         type:mongoose.Schema.Types.ObjectId,
         required:true
     },
+    birthday:{
+        type:Date
+    },
+    checked:{
+        type:Boolean,
+        required: 'Must agree'
+    },
+
     created_date: {
         type: Date,
         default: Date.now
@@ -33,6 +41,16 @@ export const EmployeeSchema = new Schema({
 EmployeeSchema.methods.toJSON = function () {
     let employee = this;
     let employeeObject = employee.toObject();
-    return _.pick(employeeObject, '_id', 'firstName','lastName','email','company','phone','created_date');
+    return _.pick(
+    employeeObject, 
+    '_id', 
+    'firstName',
+    'lastName',
+    'email',
+    'company',
+    'phone',
+    'birthday',
+    'checked',
+    'created_date');
 
 }
