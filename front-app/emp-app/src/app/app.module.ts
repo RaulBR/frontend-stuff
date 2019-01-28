@@ -9,15 +9,16 @@ import { MaterialModule } from './material-imports';
 import { EmployeeComponent } from './employee/employee.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { HttpService } from './service/http.service';
-import { LoginService } from './service/login.http.service';
-import { EmployeeService } from './login/login-form/employee.http.service';
+import { HttpService } from './service/http.service/http.service';
+import { HttpLoginService } from './service/http.service/login.http.service';
+import { HttpEmployeeService } from './service/http.service/employee.http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from './service/localStorage';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { AuthGuardService } from './service/auth.guard.service';
 import { SnackBarComponent } from './shared/snackbar/snackbar.component';
 import { SnackBarService } from './shared/snackbar/snackbar.service';
+import { LoginService } from './login/loginService';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,9 @@ import { SnackBarService } from './shared/snackbar/snackbar.service';
     ],
   providers: [
     HttpService,
+    HttpLoginService,
+    HttpEmployeeService,
     LoginService,
-    EmployeeService,
     LocalStorageService,
     AuthGuardService,
     SnackBarService],

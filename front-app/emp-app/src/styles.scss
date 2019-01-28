@@ -16,16 +16,13 @@ h3,ul,li,p{
     padding: 0;
     margin: 0;
 }
-html {
-    height: 100%;
-  }
-  body {
-    min-height: 100%;
-  }
-.container{
-    max-width:1200px;
-    min-width: 300px;
-    margin: 0 auto;
+
+.form-container{
+    display: flex;
+    flex-flow: column;
+    margin-top:10px;
+    margin: auto;
+    width: 80%;
 }
 .center{
     margin: auto;

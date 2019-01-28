@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LocalStorageService } from './localStorage';
-import { User } from '../shared/models/user.model';
+import { LocalStorageService } from '../localStorage';
+import { User } from '../../shared/models/user.model';
 import { Subscription } from 'rxjs';
 
 @Injectable()

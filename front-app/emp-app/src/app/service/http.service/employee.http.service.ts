@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { HttpService } from "../../service/http.service";
-import { Employee } from "../../models/employee.model";
+import { HttpService } from "./http.service";
+import { Employee } from "../../shared/models/employee.model";
 import { BehaviorSubject } from "rxjs";
-import { HttpEmployeeInterface } from "../../interfaces/http.employee.interface";
+import { HttpEmployeeInterface } from "./interfaces/http.employee.interface";
 
 @Injectable()
-export class EmployeeService implements HttpEmployeeInterface<Employee>  {
+export class HttpEmployeeService implements HttpEmployeeInterface<Employee>  {
   editEmployeeSubject = new BehaviorSubject('');
     constructor(private httpService: HttpService) { }
 

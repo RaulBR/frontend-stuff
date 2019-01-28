@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Employee } from '../shared/models/employee.model';
 import { Subscription } from 'rxjs';
-import { EmployeeService } from '../login/login-form/employee.http.service';
+import { HttpEmployeeService } from '../service/http.service/employee.http.service';
+import { SnackBarService } from '../shared/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-employee-form',
@@ -15,9 +16,13 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
   checked = false;
   private subscription: Subscription
   constructor(private router: Router,
-    private employeeService: EmployeeService) {
+              private employeeService: HttpEmployeeService,
+              private snack: SnackBarService) {}
 
-  }
+  ngOnInit() {
+     this.loadDataFromEdit();
+   }
+   
   onSubmit() {
     if (this.signupForm.valid) {
       let formData = this.signupForm.value;
@@ -26,7 +31,7 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
           .subscribe((res) => {
             this.router.navigate(['main']);
           }, (err) => {
-            
+            this.snack.openSnackBarStandard('error on edit');
           });
       } else {
         delete formData._id
@@ -34,7 +39,7 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
           .subscribe((res) => {
             this.router.navigate(['main']);
           }, (err) => {
-
+            this.snack.openSnackBarStandard('error on on save');
           });
       }
     }
@@ -43,9 +48,6 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
     this.router.navigate(['main']);
   }
 
-  ngOnInit() {
-    this.loadDataFromEdit();
-  }
   private loadDataFromEdit() {
     this.subscription = this.employeeService.editEmployeeSubject.subscribe((data) => {
       this.employeeService.getSpecificEmployee<Employee>(data).subscribe((result) => {

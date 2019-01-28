@@ -1,10 +1,10 @@
 import { HttpService } from "./http.service";
 import { Injectable } from "@angular/core";
-import { User } from "../shared/models/user.model";
-import { HttpLoginInterface } from "../interfaces/http.login.interface";
+import { User } from "../../shared/models/user.model";
+import { HttpLoginInterface } from "./interfaces/http.login.interface";
 
 @Injectable()
-export class LoginService implements HttpLoginInterface<User> {
+export class HttpLoginService implements HttpLoginInterface<User> {
 
     constructor(private httpService: HttpService) { }
 

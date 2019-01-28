@@ -1,6 +1,6 @@
 <button mat-raised-button 
 (click)="onBack()"><beack</button>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="container">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="form-container">
   <mat-form-field>
     <input matInput 
            email
@@ -19,7 +19,7 @@
           ngModel 
           name="password" 
           #password="ngModel"
-          (ngModelChange)="checkPass()">
+          (focusout)="checkPass()">
   </mat-form-field>
 
   <mat-form-field>
@@ -32,9 +32,9 @@
           ngModel 
           name="password2"
           #password2="ngModel" 
-          (ngModelChange)="checkPass()">
+          (focusout)="checkPass()">
   </mat-form-field>
-  <p *ngIf="!disabled">passwords must mach</p>
+  <!-- <p *ngIf="!disabled">passwords must mach</p> -->
 
   <button mat-raised-button color="accent" [disabled]="!f.valid || !disabled" type="submit">Submit</button>
 

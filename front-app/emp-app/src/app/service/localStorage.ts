@@ -3,6 +3,7 @@ import { Subject } from "rxjs";
 
 export class LocalStorageService {
     tokenEmit = new Subject();
+    
     setToLocalStorage(user: User) {
         localStorage.setItem("user", user.email);
         localStorage.setItem("token", user.token);
@@ -32,8 +33,13 @@ export class LocalStorageService {
         user._id = localStorage.getItem('id');
         return user;
     }
-
+    isUserInCash(){
+        if (localStorage.getItem('token')){
+            return true 
+        }
+        return false;
+    }
     empty() {
-        localStorage.clear();
+    
     }
 }
