@@ -16,17 +16,22 @@ export class HttpEmployeeService implements HttpEmployeeInterface<Employee>  {
         return this.httpService.post<Employee>('employee', formData);
 
     }
+    
     deleteEmployee(id){
             return this.httpService.delete('employee/'+id);
     }
+
     editEmployee(employee:Employee){
         return this.httpService.post<Employee>('employee/'+employee._id ,employee);
 
     }
+
     getSpecificEmployee<Employee>(id){
         return this.httpService.get<Employee>('employee/'+id);
     }
+
     editEmployeeEmit(id){
         this.editEmployeeSubject.next(id);
+
     }
 }

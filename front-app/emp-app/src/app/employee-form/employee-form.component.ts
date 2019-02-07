@@ -49,15 +49,19 @@ export class EmployeeFormComponent implements OnInit, OnDestroy {
   }
 
   private loadDataFromEdit() {
+    this.signupForm.form.reset();
     this.subscription = this.employeeService.editEmployeeSubject.subscribe((data) => {
-      this.employeeService.getSpecificEmployee<Employee>(data).subscribe((result) => {
+        if(!data) return
+        this.employeeService.getSpecificEmployee<Employee>(data).subscribe((result) => {
         this.signupForm.form.patchValue(result);
       });
     });
+    this.subscription.unsubscribe();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(){
     this.subscription.unsubscribe();
+    this.signupForm.form.reset();
   }
 
 }

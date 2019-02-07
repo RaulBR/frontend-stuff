@@ -10,13 +10,14 @@ import { SnackBarService } from 'src/app/shared/snackbar/snackbar.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent implements OnInit{
+export class LoginFormComponent implements OnInit ,OnDestroy{
 
   disabled = true;
   @ViewChild('f') signupForm: NgForm;
   @ViewChild('password2') password2;
   @ViewChild('password') password;
   constructor(private httpLoginService: HttpLoginService,
+              //mearge http with login service
               private local: LocalStorageService,
               private router: Router,
               private snack: SnackBarService) { }
@@ -27,6 +28,7 @@ export class LoginFormComponent implements OnInit{
   
    this.password2.value === this.password.value ?  this.disabled = true:
                                                    this.disabled = false;
+                                                   
     
     if(!this.disabled){
       this.snack.openSnackBar("Passwards don't mach",50000)
@@ -34,7 +36,7 @@ export class LoginFormComponent implements OnInit{
      
      if(this.password.value < 5)  this.snack.openSnackBar("Passwards to short",50000)
     }
-
+    if(this.disabled) this.snack.close();
   }
   onBack() {
     this.router.navigate(['']);
@@ -48,10 +50,13 @@ export class LoginFormComponent implements OnInit{
         this.local.setToLocalStorage(res);
         this.router.navigate(['main']);
       }, (err) => {
-        this.snack.openSnackBarStandard('user exists')
+        this.snack.openSnackBarStandard('User exists')
       });
     }
 
+  }
+  ngOnDestroy() {
+    this.snack.close();
   }
 
 

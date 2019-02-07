@@ -19,7 +19,7 @@
           ngModel 
           name="password" 
           #password="ngModel"
-          (focusout)="checkPass()">
+          (keyup)="checkPass()">
   </mat-form-field>
 
   <mat-form-field>
@@ -32,7 +32,7 @@
           ngModel 
           name="password2"
           #password2="ngModel" 
-          (focusout)="checkPass()">
+          (keyup)="checkPass()">
   </mat-form-field>
   <!-- <p *ngIf="!disabled">passwords must mach</p> -->
 

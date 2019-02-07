@@ -39,6 +39,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   }
   onNewUser() {
     this.router.navigate(['employee']);
+    this.httpEmployeeService.editEmployeeEmit('');
   }
 
   private getEmployees() {
