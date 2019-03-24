@@ -9,15 +9,13 @@ import { Location } from '@angular/common';
 export class HttpService implements OnDestroy {
 
     private supscriptions: Subscription;
-    URL = "api/";
+    URL = "http://localhost:4000/api/";
     constructor(private http: HttpClient,
         private local: LocalStorageService,
         private _location: Location) { }
 
     post<T>(endpoint, data) {
-        endpoint = this.URL + endpoint;
-        console.log('here ',this._location.path());
-       
+        endpoint = this.URL + endpoint;       
         return this.http.post<T>(endpoint, data, { headers: this.getHeadder() });
 
     }

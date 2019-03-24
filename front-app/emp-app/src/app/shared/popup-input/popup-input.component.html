@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <mat-form-field *ngFor="let input of inputs">
+    <input matInput 
+      placeholder = "{{input.placeholder}}"
+      class="popup-input"
+      [(ngModel)]="input.value">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Nu</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Da</button>
+</div>

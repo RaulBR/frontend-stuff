@@ -19,6 +19,8 @@ import { AuthGuardService } from './service/auth.guard.service';
 import { SnackBarComponent } from './shared/snackbar/snackbar.component';
 import { SnackBarService } from './shared/snackbar/snackbar.service';
 import { LoginService } from './login/loginService';
+import { PopupInputComponent } from './shared/popup-input/popup-input.component';
+import { PopupInputOpen } from './shared/popup-input/popup-input-open.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LoginService } from './login/loginService';
     EmployeeFormComponent,
     LoginFormComponent,
     HeaderComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    PopupInputComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +48,10 @@ import { LoginService } from './login/loginService';
     LoginService,
     LocalStorageService,
     AuthGuardService,
-    SnackBarService],
+    SnackBarService,
+    PopupInputOpen],
   entryComponents:[
-      SnackBarComponent],
+      SnackBarComponent,PopupInputComponent],
   bootstrap: [AppComponent,
     ]
     

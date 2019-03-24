@@ -1,0 +1,16 @@
+.mat-dialog-content{
+    display: flex;
+    flex-flow: column;
+}
+.mat-dialog-actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    margin :20px;
+}
+mat-form-field{
+   max-width:1333px;
+   flex-grow: 1;
+}

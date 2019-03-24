@@ -7,6 +7,8 @@ import { LocalStorageService } from '../service/localStorage';
 import { User } from '../shared/models/user.model';
 import { Subscription, Subject } from 'rxjs';
 import { SnackBarService } from '../shared/snackbar/snackbar.service';
+import { PopupInputOpen } from '../shared/popup-input/popup-input-open.service';
+import { DialogData } from '../shared/popup-input/popup-input.component';
 
 @Component({
   selector: 'app-employee',
@@ -25,7 +27,8 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private httpEmployeeService: HttpEmployeeService,
               private local: LocalStorageService,
-              private snack:SnackBarService
+              private snack:SnackBarService,
+              private popup:PopupInputOpen,
               ) { }
 
   ngOnInit() {
@@ -36,6 +39,16 @@ export class EmployeeComponent implements OnInit, OnDestroy {
         this.name = res.email;
       })
     }
+  }
+  onPopup(row:Employee){
+    event.stopPropagation();
+    
+    let dialogModel = <DialogData>{};
+    dialogModel.inputs = [{label:'Tip Masina',placeholder:'Audi (BINI)',value:''},
+    {label:'An productie',placeholder:'1900(toamna)',value:''}];
+    dialogModel.title = row.firstName;
+    this.popup.openDialog(dialogModel);
+    console.log("here")
   }
   onNewUser() {
     this.router.navigate(['employee']);
