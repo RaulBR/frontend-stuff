@@ -73,13 +73,12 @@ export class UserController {
 
     }
     public logout(req:Request, res:Response) {
-
         User.removeToken(req.body.token,req.body.user._id)
-        .then(()=>{
+        .then(() => {
             res.status(200).send();
         })
-        .catch(e=>{
-             res.status(400).send(); 
+        .catch(e => {
+             res.status(400).send(e); 
         });
 
     }

@@ -54,7 +54,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "emp-app:build"
+            "browserTarget": "emp-app:build",
+            "host": "0.0.0.0"
           },
           "configurations": {
             "production": {

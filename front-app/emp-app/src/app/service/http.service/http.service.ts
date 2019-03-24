@@ -3,17 +3,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LocalStorageService } from '../localStorage';
 import { User } from '../../shared/models/user.model';
 import { Subscription } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Injectable()
 export class HttpService implements OnDestroy {
 
     private supscriptions: Subscription;
-    URL = "http://localhost:4000/";
+    URL = "api/";
     constructor(private http: HttpClient,
-        private local: LocalStorageService) { }
+        private local: LocalStorageService,
+        private _location: Location) { }
 
     post<T>(endpoint, data) {
         endpoint = this.URL + endpoint;
+        console.log('here ',this._location.path());
+       
         return this.http.post<T>(endpoint, data, { headers: this.getHeadder() });
 
     }
