@@ -41,7 +41,7 @@ export class LoginFormComponent implements OnInit ,OnDestroy{
   onBack() {
     this.router.navigate(['']);
   }
-  onSubmit() {
+  onSubmit(f) {
     if (this.disabled && this.signupForm.valid) {
       let formData = this.signupForm.value;
       delete formData.password2;
