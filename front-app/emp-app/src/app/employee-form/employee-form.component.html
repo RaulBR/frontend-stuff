@@ -1,5 +1,5 @@
 <button mat-raised-button 
-(click)="onBack()"><beack</button>
+(click)="onBack()">< back</button>
 <form  class = "form-container"
       (ngSubmit)="onSubmit()" 
       #f="ngForm" >
@@ -64,7 +64,7 @@
     required
     ngModel
     #checked='ngModel' 
-    name="checked">I agree with the thearms</mat-checkbox>
+    name="checked">I agree with the terms</mat-checkbox>
   
   <button mat-raised-button color="accent" 
           [disabled]="!f.valid">Submit</button>

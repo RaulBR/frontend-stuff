@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
 export class HttpService implements OnDestroy {
 
     private supscriptions: Subscription;
-    URL = "http://localhost:4000/api/";
+    URL = "api/";
     constructor(private http: HttpClient,
         private local: LocalStorageService,
         private _location: Location) { }

@@ -44,11 +44,10 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     event.stopPropagation();
     
     let dialogModel = <DialogData>{};
-    dialogModel.inputs = [{label:'Tip Masina',placeholder:'Audi (BINI)',value:''},
-    {label:'An productie',placeholder:'1900(toamna)',value:''}];
+    dialogModel.inputs = [{label:'type',placeholder:'Type of car',value:''},
+    {label:'year',placeholder:'uear',value:''}];
     dialogModel.title = row.firstName;
     this.popup.openDialog(dialogModel);
-    console.log("here")
   }
   onNewUser() {
     this.router.navigate(['employee']);
@@ -65,17 +64,30 @@ export class EmployeeComponent implements OnInit, OnDestroy {
       });
   }
   onEdit(row){
+    event.stopPropagation();
     this.router.navigate(['employee']);
     this.httpEmployeeService.editEmployeeEmit(row._id);
   }
 
   onDelete(row){
-    this.httpEmployeeService.deleteEmployee(row._id).subscribe(res=>{
+    event.stopPropagation();
+    event.stopPropagation();
+    
+    let dialogModel = <DialogData>{};
+    dialogModel.paragraph = 'Are you sure ?'
+    this.popup.openDialog(dialogModel);
+   this.popup.getDialogData().subscribe((data) =>{
+    if(!data){
+      return
+    }
+    this.httpEmployeeService.deleteEmployee(row._id).subscribe( res =>{
       this.getEmployees();
       this.snack.openSnackBarStandard(`Delete done: ${row.firstName} is gone :(`);
     },err=>{
       this.snack.openSnackBarStandard('error on Delete');
     })
+   })
+    
   }
   
   ngOnDestroy(): void {
