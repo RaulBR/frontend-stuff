@@ -45,9 +45,12 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     
     let dialogModel = <DialogData>{};
     dialogModel.inputs = [{label:'type',placeholder:'Type of car',value:''},
-    {label:'year',placeholder:'uear',value:''}];
+    {label:'year',placeholder:'Year',value:''}];
     dialogModel.title = row.firstName;
     this.popup.openDialog(dialogModel);
+    // this.popup.getDialogData().subscribe(data =>{
+    
+    // });
   }
   onNewUser() {
     this.router.navigate(['employee']);
@@ -77,6 +80,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     dialogModel.paragraph = 'Are you sure ?'
     this.popup.openDialog(dialogModel);
    this.popup.getDialogData().subscribe((data) =>{
+     console.log(data);
     if(!data){
       return
     }
