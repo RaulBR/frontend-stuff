@@ -50,14 +50,14 @@ export class Routes {
             app.route('/api/user/logout').delete(this.auth.authenticate,this.userService.logout);
 
         //confing serve from node server
-        app.route('/').get((req, res) =>  res.sendFile(path.resolve('./front/index.html')));
-        app.route('*').get((req: Request, res: Response) => {
-                if (allowedExt.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-                  res.sendFile(path.resolve(`front/${req.url}`));
-                } else {
-                  res.sendFile(path.resolve('./front/index.html'));
-                }
-              });
+        // app.route('/').get((req, res) =>  res.sendFile(path.resolve('./front/index.html')));
+        // app.route('*').get((req: Request, res: Response) => {
+        //         if (allowedExt.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
+        //           res.sendFile(path.resolve(`front/${req.url}`));
+        //         } else {
+        //           res.sendFile(path.resolve('./front/index.html'));
+        //         }
+        //       });
 
     }
 }
