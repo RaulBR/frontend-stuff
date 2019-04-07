@@ -87,7 +87,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.httpEmployeeService.deleteEmployee(row._id).subscribe( res =>{
       this.getEmployees();
       this.snack.openSnackBarStandard(`Delete done: ${row.firstName} is gone :(`);
-    },err=>{
+    },err => {
       this.snack.openSnackBarStandard('error on Delete');
     })
    })

@@ -37,7 +37,7 @@ export class Routes {
             // get specific Employee
             .get(this.auth.authenticate,this.employeeservice.getEmployeeByID)
             // add specific Employee
-            .post(this.auth.authenticate,this.employeeservice.updateEmployee)
+            .put(this.auth.authenticate,this.employeeservice.updateEmployee)
             // delete specific Employee
             .delete(this.auth.authenticate,this.employeeservice.deleteEmployee);
 
@@ -46,7 +46,7 @@ export class Routes {
             .post(this.userService.addUser)
             // USER PRIVATE ROUTE
             app.route('/api/user/login').post(this.userService.login);
-            app.route('/api/user/me').get(this.userService.findByToken);
+            app.route('/api/user/me').post(this.userService.findByToken);
             app.route('/api/user/logout').delete(this.auth.authenticate,this.userService.logout);
 
         //confing serve from node server

@@ -19,8 +19,8 @@ export class HttpLoginService implements HttpLoginInterface<User> {
         return this.httpService.post<User>('user', formData);
     }
 
-    isAuthenticated() {
-        return this.httpService.get('user/me')
+    isAuthenticated(url) {
+        return this.httpService.post('user/me',{url:url})
 
     }
 

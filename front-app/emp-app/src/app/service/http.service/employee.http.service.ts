@@ -14,7 +14,6 @@ export class HttpEmployeeService implements HttpEmployeeInterface<Employee>  {
     }
     saveEmployee<Employee>(formData: Employee) {
         return this.httpService.post<Employee>('employee', formData);
-
     }
     
     deleteEmployee(id){
@@ -22,7 +21,7 @@ export class HttpEmployeeService implements HttpEmployeeInterface<Employee>  {
     }
 
     editEmployee(employee:Employee){
-        return this.httpService.post<Employee>('employee/'+employee._id ,employee);
+        return this.httpService.edit<Employee>('employee/'+employee._id ,employee);
 
     }
 

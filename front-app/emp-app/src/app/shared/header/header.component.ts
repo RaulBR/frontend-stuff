@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private local: LocalStorageService) { }
 
   ngOnInit():void {
-   this.subscriptions= this.loginService.logoutButtonSubject.subscribe( responce=>{
+   this.subscriptions= this.loginService.logoutButtonSubject.subscribe( responce => {
       this.isLogedin = responce;
     });
   }
