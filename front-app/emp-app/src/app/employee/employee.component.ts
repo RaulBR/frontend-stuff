@@ -80,7 +80,6 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     dialogModel.paragraph = 'Are you sure ?'
     this.popup.openDialog(dialogModel);
    this.popup.getDialogData().subscribe((data) =>{
-     console.log(data);
     if(!data){
       return
     }

@@ -40,6 +40,6 @@ export class LocalStorageService {
         return false;
     }
     empty() {
-    
+        localStorage.clear();
     }
 }
