@@ -4,7 +4,7 @@ import { Routes } from "./routes/routes";
 import * as mongoose from "mongoose";
 ;
 export class App {
-    public mongoUrl: string = 'mongodb://localhost:27017/MyDb';
+    public mongoUrl: string = 'mongodb://mongodb:27017/MyDb';
     public app: express.Application;
     public routePrv: Routes = new Routes();
     constructor() {

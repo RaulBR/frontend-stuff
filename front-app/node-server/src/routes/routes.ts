@@ -37,7 +37,7 @@ export class Routes {
             // get specific Employee
             .get(this.auth.authenticate,this.employeeservice.getEmployeeByID)
             // add specific Employee
-            .put(this.auth.authenticate,this.employeeservice.updateEmployee)
+            .post(this.auth.authenticate,this.employeeservice.updateEmployee)
             // delete specific Employee
             .delete(this.auth.authenticate,this.employeeservice.deleteEmployee);
 

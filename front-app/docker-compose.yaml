@@ -1,20 +1,61 @@
 
 
-version: "2"
+version: "3"
 services:
+  front:
+    container_name: front
+    # image: new_front:4
+    build: E:\programare\front\front-app\emp-app
+    ports:
+      - "80:80"
+      - "443:443"
+    # environment:
+    #   - CERT=selv.crt
+    #   - CERT_KEY=self.key
+    #   - DHPARAM=dhparam.pem
+    #   - FRONT_CERT_LOCATION=/etc/front/cert/
+    depends_on:
+      - app
+    links:
+      - app
+    networks:
+      - front_network
+    volumes:
+      - ./ssl:/etc/front/cert/
   app:
     container_name: app
-    image: back:1
+    build: E:\programare\front\front-app\node-server 
     restart: always
-    build: .
-    ports:
-      - "4000:4000"
+    # ports:
+    #   - "4000:4000"
     links:
       - mongodb
+    depends_on:
+      - mongodb
+    networks:
+      - front_network
   mongodb:
     container_name: mongodb
     image: mongo
     volumes:
-      - ./data:/data/db
-    ports:
-      - "27017:27017"
+      - mongodbdata:/data/db
+    command: mongod --smallfiles --logpath=/dev/null
+    networks:
+      - front_network
+    # ports:
+    #   - "27017:27017"
+volumes:
+  mongodbdata:
+    external: true
+    # driver_opts:
+    #   type: 'none'
+    #   o: 'bind'
+    #   device: './db-data'
+networks:
+  front_network:
+    driver: bridge
+    ipam:
+      driver: default
+      
+  
+  
